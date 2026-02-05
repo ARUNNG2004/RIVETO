@@ -127,7 +127,7 @@ function BestSeller() {
         )}
 
         {/* Stats Section */}
-        {bestseller.length > 0 && (
+        {/* {bestseller.length > 0 && (
           <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div className="text-center p-6 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl border border-gray-700">
               <div className="text-3xl md:text-4xl font-bold text-amber-400 mb-2">10K+</div>
@@ -146,7 +146,7 @@ function BestSeller() {
               <div className="text-gray-400 text-sm">Fast Shipping</div>
             </div>
           </div>
-        )}
+        )} */}
       </div>
 
       {/* Decorative Elements */}
