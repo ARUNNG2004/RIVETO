@@ -1,16 +1,37 @@
 version: '3.8'
 
 services:
-  # MongoDB Service
+  # MongoDB Service (Secured & Reliable)
   mongo:
-    image: mongo:latest
+    image: mongo:7.0  # <--- PINNED VERSION (was latest)
     container_name: riveto_mongo
+    restart: always
     ports:
       - "27017:27017"
+    environment:
+      # <--- AUTHENTICATION ADDED
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: examplepassword
     volumes:
       - mongo-data:/data/db
     networks:
       - riveto-network
+    # <--- HEALTH CHECK ADDED
+    # This checks if Mongo is actually ready to accept connections
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 10s
+      retries: 5
+      start_period: 40s
+    # <--- RESOURCE LIMITS ADDED
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'        # Max 1 CPU core
+          memory: 1G         # Max 1GB RAM
+        reservations:
+          memory: 256M       # Guarantees at least 256MB
 
   # Backend Service
   backend:
@@ -24,9 +45,11 @@ services:
     env_file:
       - ./backend/.env
     environment:
-      - MONGO_URI=mongodb://mongo:27017/riveto
+      # <--- UPDATED URI WITH AUTH CREDENTIALS
+      - MONGO_URI=mongodb://root:examplepassword@mongo:27017/riveto?authSource=admin
     depends_on:
-      - mongo
+      mongo:
+        condition: service_healthy  # <--- WAITS FOR HEALTH CHECK
     networks:
       - riveto-network
 
@@ -35,20 +58,19 @@ services:
     build: ./frontend
     container_name: riveto_frontend
     ports:
-      - "3000:5173"    # <--- This maps Host Port 3000 to Container Port 5173
+      - "3000:5173"
     volumes:
       - ./frontend:/app
       - /app/node_modules
     env_file:
       - ./frontend/.env
-    stdin_open: true   # <--- These were missing
-    tty: true          # <--- These were missing
-    depends_on:        # <--- These were missing
+    stdin_open: true
+    tty: true
+    depends_on:
       - backend
-    networks:          # <--- These were missing
+    networks:
       - riveto-network
 
-# This BOTTOM SECTION was missing, causing the error:
 volumes:
   mongo-data:
 

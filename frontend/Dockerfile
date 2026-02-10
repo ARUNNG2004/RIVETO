@@ -1,20 +1,21 @@
-# Use a lightweight Node.js image
-FROM node:18-alpine
+# Use the standard Node image (bigger but much reliable than Alpine)
+FROM node:18
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json first
+# Copy package files first
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+# THE FIX:
+# 1. --legacy-peer-deps: Ignores strict version conflicts that often break builds
+# 2. --no-audit: Skips security audit to save time and memory
+RUN npm install --legacy-peer-deps --no-audit
 
-# Copy the rest of the application code
+# Copy the rest of the code
 COPY . .
 
-# Expose the port the React app runs on
-EXPOSE 3000
+# Expose the Vite port
+EXPOSE 5173
 
-# Start the React development server
-CMD ["npm", "start"]
+# Start command
+CMD ["npm", "run", "dev", "--", "--host"]
