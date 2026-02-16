@@ -8,69 +8,87 @@ function RelatedProduct({ category, subCategory, currentProductId, tags = [], pr
   const [related, setRelated] = useState([]);
 
   useEffect(() => {
-    if (product.length > 0) {
+    if (product.length > 0 && category) {
       // Calculate similarity score for each product
       const scoredProducts = product
-        .filter((item) => item._id?.toString() !== currentProductId?.toString())
+        .filter((item) => {
+          // Exclude current product
+          if (item._id?.toString() === currentProductId?.toString()) return false;
+          
+          // CRITICAL: Only include products that match the category
+          // This ensures we NEVER show random unrelated products
+          return item.category?.toLowerCase().trim() === category?.toLowerCase().trim();
+        })
         .map((item) => {
           let score = 0;
 
-          // 1. Category match (highest priority) - 40 points
-          if (item.category?.toLowerCase().trim() === category?.toLowerCase().trim()) {
-            score += 40;
+          // 1. Category match (base requirement - already filtered above)
+          score += 40;
+          
+          // 2. SubCategory match (highest priority for similarity) - 35 points
+          if (item.subCategory?.toLowerCase().trim() === subCategory?.toLowerCase().trim()) {
+            score += 35;
+          }
+
+          // 3. Tag similarity - up to 25 points
+          if (tags && tags.length > 0 && item.tags && item.tags.length > 0) {
+            const currentProductTags = tags.map(t => t?.toLowerCase().trim()).filter(Boolean);
+            const itemTags = item.tags.map(t => t?.toLowerCase().trim()).filter(Boolean);
             
-            // 2. SubCategory match - additional 30 points
-            if (item.subCategory?.toLowerCase().trim() === subCategory?.toLowerCase().trim()) {
-              score += 30;
+            const commonTags = itemTags.filter(tag => currentProductTags.includes(tag));
+            
+            if (commonTags.length > 0) {
+              // More common tags = higher score
+              const tagScore = (commonTags.length / Math.max(currentProductTags.length, itemTags.length)) * 25;
+              score += tagScore;
             }
           }
 
-          // 3. Tag similarity - up to 20 points
-          if (tags && tags.length > 0 && item.tags && item.tags.length > 0) {
-            const commonTags = item.tags.filter(tag => 
-              tags.some(t => t?.toLowerCase() === tag?.toLowerCase())
-            );
-            const tagScore = (commonTags.length / Math.max(tags.length, item.tags.length)) * 20;
-            score += tagScore;
-          }
-
-          // 4. Price range similarity - up to 15 points
+          // 4. Price range similarity - up to 20 points
           if (price > 0 && item.price) {
             const priceDiff = Math.abs(item.price - price);
-            const priceRange = price * 0.5; // Within 50% price range
-            const priceScore = Math.max(0, 15 - (priceDiff / priceRange) * 15);
-            score += priceScore;
+            const maxDiff = price * 0.5; // Consider products within 50% price range
+            
+            if (priceDiff <= maxDiff) {
+              // Closer price = higher score
+              const priceScore = 20 * (1 - (priceDiff / maxDiff));
+              score += priceScore;
+            }
           }
 
-          // 5. Popularity/Rating boost - up to 10 points
-          if (item.rating) {
-            score += (item.rating / 5) * 5;
+          // 5. Bestseller boost - 10 points
+          if (item.bestseller) {
+            score += 10;
           }
-          if (item.popularity) {
-            score += Math.min(item.popularity / 20, 5); // Cap at 5 points
+
+          // 6. Rating boost - up to 10 points
+          if (item.rating && item.rating > 0) {
+            score += (item.rating / 5) * 10;
           }
 
           return { ...item, score };
         })
-        // Filter: Only include products with meaningful similarity
-        // Minimum score of 20 ensures at least category match OR strong tag/price similarity
-        // This prevents unrelated products from appearing
-        .filter((item) => {
-          // Require minimum score of 20 (ensures genuine similarity)
-          if (item.score < 20) return false;
-          
-          // Additional check: Must have at least category match OR tag overlap
-          const hasTagOverlap = tags && tags.length > 0 && item.tags && item.tags.length > 0 &&
-            item.tags.some(tag => tags.some(t => t?.toLowerCase() === tag?.toLowerCase()));
-          const hasCategoryMatch = item.category?.toLowerCase().trim() === category?.toLowerCase().trim();
-          
-          return hasCategoryMatch || hasTagOverlap;
-        })
-        // Sort by score (highest first) and take top 4
-        .sort((a, b) => b.score - a.score)
-        .slice(0, 4);
+        // Sort by score (highest similarity first)
+        .sort((a, b) => b.score - a.score);
 
-      setRelated(scoredProducts);
+      // Prioritize products with same subcategory, then by score
+      const sameSubCategory = scoredProducts.filter(
+        item => item.subCategory?.toLowerCase().trim() === subCategory?.toLowerCase().trim()
+      );
+      
+      const differentSubCategory = scoredProducts.filter(
+        item => item.subCategory?.toLowerCase().trim() !== subCategory?.toLowerCase().trim()
+      );
+
+      // Take top 4: prioritize same subcategory, fill with same category if needed
+      const finalProducts = [
+        ...sameSubCategory.slice(0, 4),
+        ...differentSubCategory
+      ].slice(0, 4);
+
+      setRelated(finalProducts);
+    } else {
+      setRelated([]);
     }
   }, [product, category, subCategory, currentProductId, tags, price]);
 
