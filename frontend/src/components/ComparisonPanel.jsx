@@ -90,12 +90,12 @@ const ComparisonPanel = ({ compareList, onClose, removeProduct, currency = "$" }
         <div className="fixed inset-x-0 bottom-0 z-50 flex flex-col justify-end pointer-events-none">
 
             {/* Panel Container - Slide Up Animation */}
-            <div className="comparison-panel-content bg-gray-900/95 backdrop-blur-xl border-t border-gray-700 shadow-2xl rounded-t-3xl pointer-events-auto transform max-h-[85vh] overflow-hidden flex flex-col">
+            <div className="comparison-panel-content bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl border-t border-gray-200 dark:border-gray-700 shadow-2xl rounded-t-3xl pointer-events-auto transform max-h-[85vh] overflow-hidden flex flex-col">
 
                 {/* Header */}
-                <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700 bg-gray-800/50">
+                <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700 bg-white/80 dark:bg-gray-800/50">
                     <div className="flex items-center gap-3">
-                        <h2 className="text-xl font-bold text-white flex items-center gap-2">
+                        <h2 className="text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2">
                             <span className="w-8 h-8 rounded-lg bg-cyan-500/20 flex items-center justify-center">
                                 <RiPriceTag3Line className="text-cyan-400" />
                             </span>
@@ -128,7 +128,7 @@ const ComparisonPanel = ({ compareList, onClose, removeProduct, currency = "$" }
                                             {insight.icon}
                                         </div>
                                         <div>
-                                            <h4 className="font-bold text-white text-sm mb-1">{insight.title}</h4>
+                                            <h4 className="font-bold text-gray-900 dark:text-white text-sm mb-1">{insight.title}</h4>
                                             <p className="text-gray-400 text-xs leading-relaxed">{insight.text}</p>
                                         </div>
                                     </div>
@@ -141,17 +141,17 @@ const ComparisonPanel = ({ compareList, onClose, removeProduct, currency = "$" }
                     <div className="grid grid-cols-[120px_repeat(auto-fit,minmax(200px,1fr))] gap-0 divide-x divide-gray-700 border border-gray-700 rounded-2xl bg-gray-900/50 overflow-hidden">
 
                         {/* Labels Column */}
-                        <div className="bg-gray-800/30 flex flex-col">
-                            <div className="h-48 p-4 flex items-end font-semibold text-gray-400 text-sm border-b border-gray-700">Product</div>
-                            <div className="h-14 p-4 flex items-center font-semibold text-gray-400 text-sm border-b border-gray-700">Price</div>
-                            <div className="h-14 p-4 flex items-center font-semibold text-gray-400 text-sm border-b border-gray-700">Rating</div>
-                            <div className="h-32 p-4 flex items-start pt-4 font-semibold text-gray-400 text-sm border-b border-gray-700">Features</div>
-                            <div className="h-14 p-4 flex items-center font-semibold text-gray-400 text-sm">Action</div>
+                        <div className="bg-gray-100/80 dark:bg-gray-800/30 flex flex-col">
+                            <div className="h-48 p-4 flex items-end font-semibold text-gray-500 dark:text-gray-400 text-sm border-b border-gray-700">Product</div>
+                            <div className="h-14 p-4 flex items-center font-semibold text-gray-500 dark:text-gray-400 text-sm border-b border-gray-700">Price</div>
+                            <div className="h-14 p-4 flex items-center font-semibold text-gray-500 dark:text-gray-400 text-sm border-b border-gray-700">Rating</div>
+                            <div className="h-32 p-4 flex items-start pt-4 font-semibold text-gray-500 dark:text-gray-400 text-sm border-b border-gray-700">Features</div>
+                            <div className="h-14 p-4 flex items-center font-semibold text-gray-500 dark:text-gray-400 text-sm">Action</div>
                         </div>
 
                         {/* Product Columns */}
                         {enhancedProducts.map((item) => (
-                            <div key={item._id} className="flex flex-col min-w-[200px] relative group hover:bg-gray-800/30 transition-colors">
+                            <div key={item._id} className="flex flex-col min-w-[200px] relative group hover:bg-gray-100/80 dark:bg-gray-800/30 transition-colors">
                                 <button
                                     onClick={() => removeProduct(item._id)}
                                     className="absolute top-2 right-2 z-10 p-1.5 bg-gray-900/80 rounded-full text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity hover:text-red-400 hover:bg-gray-800"

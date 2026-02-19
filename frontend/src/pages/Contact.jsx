@@ -204,7 +204,7 @@ function Contact() {
 
   return (
     <>
-    <div className='w-full min-h-screen bg-gradient-to-br from-gray-950 via-[#0a1628] to-[#0c3a5e] pt-24 pb-20 overflow-x-hidden relative'>
+    <div className='w-full min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-950 dark:via-[#0a1628] dark:to-[#0c3a5e] pt-24 pb-20 overflow-x-hidden relative'>
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="floating-bg-1 absolute -top-24 -right-24 w-[500px] h-[500px] bg-gradient-to-br from-cyan-500/10 via-blue-500/5 to-transparent rounded-full blur-3xl"></div>
@@ -267,9 +267,9 @@ function Contact() {
                     <span className="relative z-10 group-hover:scale-110 transition-transform duration-300">{item.icon}</span>
                   </div>
 
-                  <h3 className={`text-lg font-semibold text-white mb-2 transition-all duration-300 ${item.textGlow}`}>{item.title}</h3>
+                  <h3 className={`text-lg font-semibold text-gray-900 dark:text-white mb-2 transition-all duration-300 ${item.textGlow}`}>{item.title}</h3>
                   <p className="text-cyan-300/90 font-medium group-hover:text-white transition-all duration-300">{item.content}</p>
-                  <p className="text-gray-400 text-sm mt-1 group-hover:text-gray-200 transition-all duration-300">{item.subContent}</p>
+                  <p className="text-gray-500 dark:text-gray-400 text-sm mt-1 group-hover:text-gray-200 transition-all duration-300">{item.subContent}</p>
 
                   {/* Corner decorations */}
                   <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-bl ${item.color} opacity-0 group-hover:opacity-[0.07] rounded-tr-2xl rounded-bl-[100px] transition-all duration-700`}></div>
@@ -282,7 +282,7 @@ function Contact() {
             <div className="contact-section group/social bg-gradient-to-br from-gray-800/90 to-gray-900/95 p-6 rounded-2xl border border-gray-700/50 backdrop-blur-sm
               hover:border-purple-500/30 transition-all duration-500 hover:shadow-2xl hover:shadow-purple-500/10
               hover:bg-gradient-to-br hover:from-gray-800/95 hover:to-purple-900/20">
-              <h3 className="text-lg font-semibold text-white mb-4 flex items-center gap-2 group-hover/social:text-purple-100 transition-colors duration-300">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center gap-2 group-hover/social:text-purple-100 transition-colors duration-300">
                 Follow Us
                 <span className="inline-block w-2 h-2 bg-green-400 rounded-full animate-pulse shadow-lg shadow-green-400/50"></span>
               </h3>
@@ -330,7 +330,7 @@ function Contact() {
               <div className="absolute top-10 right-20 w-2 h-2 bg-cyan-400/60 rounded-full opacity-0 group-hover/form:opacity-100 group-hover/form:animate-ping transition-opacity duration-500"></div>
               <div className="absolute bottom-20 left-10 w-1.5 h-1.5 bg-purple-400/60 rounded-full opacity-0 group-hover/form:opacity-100 group-hover/form:animate-pulse transition-opacity duration-500 delay-200"></div>
 
-              <h3 className="relative text-2xl font-bold text-white mb-6 flex items-center gap-3 group-hover/form:text-cyan-50 transition-colors duration-300">
+              <h3 className="relative text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3 group-hover/form:text-cyan-50 transition-colors duration-300">
                 Send us a Message
                 <FaPaperPlane className="w-5 h-5 text-cyan-400 animate-bounce group-hover/form:text-cyan-300 group-hover/form:drop-shadow-lg group-hover/form:drop-shadow-cyan-400/50" />
               </h3>
@@ -341,7 +341,7 @@ function Contact() {
                     animate-pulse shadow-xl shadow-green-500/30 ring-2 ring-green-400/30">
                     <FaPaperPlane className="w-12 h-12 text-green-400 drop-shadow-lg" />
                   </div>
-                  <h4 className="text-2xl font-semibold text-white mb-2">Message Sent!</h4>
+                  <h4 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">Message Sent!</h4>
                   <p className="text-gray-300">We'll get back to you within 24 hours.</p>
                 </div>
               ) : (
@@ -426,7 +426,7 @@ function Contact() {
 
         {/* CardSwap Component */}
         <div ref={cardRef} className="contact-section text-center mb-20">
-          <h3 className="text-2xl font-bold text-white mb-8 flex items-center justify-center gap-3">
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center justify-center gap-3">
             Our Team in Action
             <span className="w-3 h-3 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-full animate-pulse"></span>
           </h3>
@@ -436,10 +436,10 @@ function Contact() {
         </div>
 
 
-        {/* <div className="contact-section bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 overflow-hidden mb-20">
+        {/* <div className="contact-section bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden mb-20">
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="p-8">
-              <h3 className="text-2xl font-bold text-white mb-4">Visit Our Office</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Visit Our Office</h3>
               <p className="text-gray-300 mb-6">
                 Come see us in person! Our friendly team is ready to welcome you and discuss how we can help with your needs.
               </p>

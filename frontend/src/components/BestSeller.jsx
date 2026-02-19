@@ -76,7 +76,7 @@ function BestSeller() {
             <Title text1="BEST" text2="SELLERS" />
           </div>
 
-          <p className="text-gray-400 mt-3 sm:mt-4 text-sm sm:text-base md:text-lg lg:text-xl max-w-xs sm:max-w-lg md:max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
+          <p className="text-gray-500 dark:text-gray-400 mt-3 sm:mt-4 text-sm sm:text-base md:text-lg lg:text-xl max-w-xs sm:max-w-lg md:max-w-2xl mx-auto leading-relaxed px-2 sm:px-0">
             Discover our most loved products — tried, tested, and adored by thousands of customers worldwide.
           </p>
 
@@ -113,7 +113,7 @@ function BestSeller() {
             <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 mx-auto mb-4 sm:mb-6 bg-gradient-to-r from-gray-800 to-gray-900 rounded-full flex items-center justify-center">
               <FaFire className="text-gray-600 text-xl sm:text-2xl md:text-3xl" />
             </div>
-            <p className="text-gray-400 text-sm sm:text-base md:text-lg mb-2 sm:mb-4">No bestsellers yet</p>
+            <p className="text-gray-500 dark:text-gray-400 text-sm sm:text-base md:text-lg mb-2 sm:mb-4">No bestsellers yet</p>
             <p className="text-gray-500 text-xs sm:text-sm">Our bestsellers will appear here soon</p>
           </div>
         )}
@@ -133,19 +133,19 @@ function BestSeller() {
           <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             <div className="text-center p-6 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl border border-gray-700">
               <div className="text-3xl md:text-4xl font-bold text-amber-400 mb-2">10K+</div>
-              <div className="text-gray-400 text-sm">Units Sold</div>
+              <div className="text-gray-500 dark:text-gray-400 text-sm">Units Sold</div>
             </div>
             <div className="text-center p-6 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl border border-gray-700">
               <div className="text-3xl md:text-4xl font-bold text-amber-400 mb-2">98%</div>
-              <div className="text-gray-400 text-sm">Satisfaction Rate</div>
+              <div className="text-gray-500 dark:text-gray-400 text-sm">Satisfaction Rate</div>
             </div>
             <div className="text-center p-6 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl border border-gray-700">
               <div className="text-3xl md:text-4xl font-bold text-amber-400 mb-2">4.9/5</div>
-              <div className="text-gray-400 text-sm">Average Rating</div>
+              <div className="text-gray-500 dark:text-gray-400 text-sm">Average Rating</div>
             </div>
             <div className="text-center p-6 bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl border border-gray-700">
               <div className="text-3xl md:text-4xl font-bold text-amber-400 mb-2">24H</div>
-              <div className="text-gray-400 text-sm">Fast Shipping</div>
+              <div className="text-gray-500 dark:text-gray-400 text-sm">Fast Shipping</div>
             </div>
           </div>
         )} */}

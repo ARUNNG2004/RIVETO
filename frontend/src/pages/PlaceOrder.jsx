@@ -5,13 +5,13 @@ import { shopDataContext } from '../context/ShopContext';
 import { authDataContext } from '../context/AuthContext';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { 
-  FaMoneyBillWave, 
-  FaMapMarkerAlt, 
-  FaUser, 
-  FaEnvelope, 
-  FaPhone, 
-  FaCity, 
+import {
+  FaMoneyBillWave,
+  FaMapMarkerAlt,
+  FaUser,
+  FaEnvelope,
+  FaPhone,
+  FaCity,
   FaGlobe,
   FaLock,
   FaShippingFast,
@@ -28,7 +28,7 @@ function PlaceOrder() {
   const [isProcessing, setIsProcessing] = useState(false);
   const [formErrors, setFormErrors] = useState({});
   const navigate = useNavigate();
-  
+
   const { cartItem, setCartItem, getCartAmount, delivery_fee, product: products } = useContext(shopDataContext);
   const { serverUrl, userData } = useContext(authDataContext);
 
@@ -96,7 +96,7 @@ function PlaceOrder() {
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -150,7 +150,7 @@ function PlaceOrder() {
   ];
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-gray-900 via-[#0f172a] to-[#0c4a6e] pt-24 pb-20 px-4'>
+    <div className='min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-[#0f172a] dark:to-[#0c4a6e] pt-24 pb-20 px-4'>
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
@@ -161,22 +161,22 @@ function PlaceOrder() {
         {/* Header */}
         <div className="text-center mb-12">
           <Title text1={'COMPLETE'} text2={'YOUR ORDER'} />
-          <p className="text-cyan-100 mt-4">Almost there! Review your details and complete your purchase</p>
+          <p className="text-cyan-700 dark:text-cyan-100 mt-4">Almost there! Review your details and complete your purchase</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Form Section */}
           <div className="form-section">
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 p-8">
+            <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-8">
               <div className="flex items-center gap-3 mb-6">
                 <FaMapMarkerAlt className="w-6 h-6 text-cyan-400" />
-                <h2 className="text-2xl font-bold text-white">Delivery Information</h2>
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Delivery Information</h2>
               </div>
 
               <form onSubmit={onSubmitHandler} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-300 text-sm mb-2">First Name</label>
+                    <label className="block text-gray-600 dark:text-gray-600 dark:text-gray-300 text-sm mb-2">First Name</label>
                     <div className="relative">
                       <FaUser className="absolute left-3 top-3 text-gray-400 w-4 h-4" />
                       <input
@@ -185,7 +185,7 @@ function PlaceOrder() {
                         value={formData.firstname}
                         onChange={onChangeHandler}
                         placeholder="First name"
-                        className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                        className="w-full pl-10 pr-4 py-3 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
                         required
                       />
                     </div>
@@ -193,7 +193,7 @@ function PlaceOrder() {
                   </div>
 
                   <div>
-                    <label className="block text-gray-300 text-sm mb-2">Last Name</label>
+                    <label className="block text-gray-600 dark:text-gray-600 dark:text-gray-300 text-sm mb-2">Last Name</label>
                     <div className="relative">
                       <FaUser className="absolute left-3 top-3 text-gray-400 w-4 h-4" />
                       <input
@@ -202,7 +202,7 @@ function PlaceOrder() {
                         value={formData.lastname}
                         onChange={onChangeHandler}
                         placeholder="Last name"
-                        className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                        className="w-full pl-10 pr-4 py-3 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
                         required
                       />
                     </div>
@@ -211,7 +211,7 @@ function PlaceOrder() {
                 </div>
 
                 <div>
-                  <label className="block text-gray-300 text-sm mb-2">Email Address</label>
+                  <label className="block text-gray-600 dark:text-gray-600 dark:text-gray-300 text-sm mb-2">Email Address</label>
                   <div className="relative">
                     <FaEnvelope className="absolute left-3 top-3 text-gray-400 w-4 h-4" />
                     <input
@@ -220,7 +220,7 @@ function PlaceOrder() {
                       value={formData.email}
                       onChange={onChangeHandler}
                       placeholder="Email address"
-                      className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                      className="w-full pl-10 pr-4 py-3 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
                       required
                     />
                   </div>
@@ -228,7 +228,7 @@ function PlaceOrder() {
                 </div>
 
                 <div>
-                  <label className="block text-gray-300 text-sm mb-2">Street Address</label>
+                  <label className="block text-gray-600 dark:text-gray-600 dark:text-gray-300 text-sm mb-2">Street Address</label>
                   <div className="relative">
                     <FaMapMarkerAlt className="absolute left-3 top-3 text-gray-400 w-4 h-4" />
                     <input
@@ -237,7 +237,7 @@ function PlaceOrder() {
                       value={formData.street}
                       onChange={onChangeHandler}
                       placeholder="Street address"
-                      className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                      className="w-full pl-10 pr-4 py-3 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
                       required
                     />
                   </div>
@@ -246,7 +246,7 @@ function PlaceOrder() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-300 text-sm mb-2">City</label>
+                    <label className="block text-gray-600 dark:text-gray-600 dark:text-gray-300 text-sm mb-2">City</label>
                     <div className="relative">
                       <FaCity className="absolute left-3 top-3 text-gray-400 w-4 h-4" />
                       <input
@@ -255,7 +255,7 @@ function PlaceOrder() {
                         value={formData.city}
                         onChange={onChangeHandler}
                         placeholder="City"
-                        className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                        className="w-full pl-10 pr-4 py-3 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
                         required
                       />
                     </div>
@@ -263,14 +263,14 @@ function PlaceOrder() {
                   </div>
 
                   <div>
-                    <label className="block text-gray-300 text-sm mb-2">State</label>
+                    <label className="block text-gray-600 dark:text-gray-600 dark:text-gray-300 text-sm mb-2">State</label>
                     <input
                       type="text"
                       name="state"
                       value={formData.state}
                       onChange={onChangeHandler}
                       placeholder="State"
-                      className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                      className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
                       required
                     />
                     {formErrors.state && <p className="text-red-400 text-sm mt-1">{formErrors.state}</p>}
@@ -279,21 +279,21 @@ function PlaceOrder() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-gray-300 text-sm mb-2">Pincode</label>
+                    <label className="block text-gray-600 dark:text-gray-600 dark:text-gray-300 text-sm mb-2">Pincode</label>
                     <input
                       type="text"
                       name="pincode"
                       value={formData.pincode}
                       onChange={onChangeHandler}
                       placeholder="Pincode"
-                      className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                      className="w-full px-4 py-3 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
                       required
                     />
                     {formErrors.pincode && <p className="text-red-400 text-sm mt-1">{formErrors.pincode}</p>}
                   </div>
 
                   <div>
-                    <label className="block text-gray-300 text-sm mb-2">Country</label>
+                    <label className="block text-gray-600 dark:text-gray-600 dark:text-gray-300 text-sm mb-2">Country</label>
                     <div className="relative">
                       <FaGlobe className="absolute left-3 top-3 text-gray-400 w-4 h-4" />
                       <input
@@ -302,7 +302,7 @@ function PlaceOrder() {
                         value={formData.country}
                         onChange={onChangeHandler}
                         placeholder="Country"
-                        className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                        className="w-full pl-10 pr-4 py-3 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
                         required
                       />
                     </div>
@@ -311,7 +311,7 @@ function PlaceOrder() {
                 </div>
 
                 <div>
-                  <label className="block text-gray-300 text-sm mb-2">Phone Number</label>
+                  <label className="block text-gray-600 dark:text-gray-600 dark:text-gray-300 text-sm mb-2">Phone Number</label>
                   <div className="relative">
                     <FaPhone className="absolute left-3 top-3 text-gray-400 w-4 h-4" />
                     <input
@@ -320,7 +320,7 @@ function PlaceOrder() {
                       value={formData.phone}
                       onChange={onChangeHandler}
                       placeholder="Phone number"
-                      className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
+                      className="w-full pl-10 pr-4 py-3 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent"
                       required
                     />
                   </div>
@@ -337,10 +337,10 @@ function PlaceOrder() {
               <CartTotal />
 
               {/* Payment Methods */}
-              <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 p-6">
+              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-6">
                 <div className="flex items-center gap-3 mb-6">
                   <RiSecurePaymentLine className="w-6 h-6 text-cyan-400" />
-                  <h2 className="text-2xl font-bold text-white">Payment Method</h2>
+                  <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Payment Method</h2>
                 </div>
 
                 <div className="space-y-4">
@@ -362,7 +362,7 @@ function PlaceOrder() {
                           </div>
                           <div className="flex-1">
                             <h3 className="text-white font-semibold">{payment.name}</h3>
-                            <p className="text-gray-400 text-sm">{payment.description}</p>
+                            <p className="text-gray-500 dark:text-gray-400 text-sm">{payment.description}</p>
                           </div>
                           <div className={`w-5 h-5 rounded-full border-2 ${
                             method === payment.id ? 'bg-cyan-500 border-cyan-500' : 'border-gray-500'
@@ -404,11 +404,11 @@ function PlaceOrder() {
 
               {/* Additional Info */}
               <div className="text-center">
-                <p className="text-gray-400 text-sm flex items-center justify-center gap-2">
+                <p className="text-gray-500 dark:text-gray-400 text-sm flex items-center justify-center gap-2">
                   <FaShippingFast className="w-4 h-4" />
                   Free shipping on orders over $50
                 </p>
-                <p className="text-gray-400 text-sm mt-1 flex items-center justify-center gap-2">
+                <p className="text-gray-500 dark:text-gray-400 text-sm mt-1 flex items-center justify-center gap-2">
                   <FaCheckCircle className="w-4 h-4" />
                   30-day money-back guarantee
                 </p>

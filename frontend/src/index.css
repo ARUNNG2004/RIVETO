@@ -1,8 +1,17 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 body {
   overflow-x: hidden;
-  background: #000000;
+  background: #ffffff;
+  color: #111827;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background: #0a0a0a;
+  color: #f3f4f6;
 }
 @keyframes glow {
   0%, 100% {

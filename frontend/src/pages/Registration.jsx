@@ -39,7 +39,7 @@ function Registration() {
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!formData.name.trim()) {
       newErrors.name = "Name is required";
     } else if (formData.name.length < 2) {
@@ -79,7 +79,7 @@ function Registration() {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -91,7 +91,7 @@ function Registration() {
         formData,
         { withCredentials: true }
       );
-      
+
       getCurrentUser();
       toast.success("Account created successfully! Welcome to Riveto 🎉");
       navigate("/");
@@ -109,17 +109,17 @@ function Registration() {
     try {
       const response = await signInWithPopup(auth, provider);
       const user = response.user;
-      
+
       await axios.post(
         serverUrl + "/api/auth/googlelogin",
-        { 
-          name: user.displayName, 
+        {
+          name: user.displayName,
           email: user.email,
-          photoURL: user.photoURL 
+          photoURL: user.photoURL
         },
         { withCredentials: true }
       );
-      
+
       getCurrentUser();
       toast.success("Welcome to Riveto! 🎉");
       navigate("/");
@@ -132,7 +132,7 @@ function Registration() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-[#0f172a] to-[#0c4a6e] px-4 py-8">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-[#0f172a] dark:to-[#0c4a6e] px-4 py-8">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
@@ -142,7 +142,7 @@ function Registration() {
       <div className="registration-container max-w-md w-full relative z-10">
         {/* Header */}
         <div className="text-center mb-8">
-          <div 
+          <div
             onClick={() => navigate("/")}
             className="cursor-pointer mb-6 inline-block"
             aria-label="Navigate Home"
@@ -151,18 +151,18 @@ function Registration() {
               Riveto
             </h1>
           </div>
-          
-          <h2 className="text-3xl font-bold text-white mb-2">Create Your Account</h2>
-          <p className="text-cyan-100">Join thousands of happy shoppers on Riveto</p>
+
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Create Your Account</h2>
+          <p className="text-cyan-700 dark:text-cyan-100">Join thousands of happy shoppers on Riveto</p>
         </div>
 
         {/* Card Container */}
-        <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 p-8 shadow-2xl">
+        <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-8 shadow-2xl">
           {/* Google Signup Button */}
           <button
             onClick={googleSignup}
             disabled={googleLoading}
-            className="form-element w-full flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-gray-600 rounded-xl py-3 px-4 text-white font-medium transition-all duration-300 hover:border-gray-500 disabled:opacity-50 disabled:cursor-not-allowed mb-6"
+            className="form-element w-full flex items-center justify-center gap-3 bg-gray-100 hover:bg-gray-200 dark:bg-white/5 dark:hover:bg-white/10 border border-gray-300 dark:border-gray-600 rounded-xl py-3 px-4 text-gray-900 dark:text-white font-medium transition-all duration-300 hover:border-gray-400 dark:hover:border-gray-500 disabled:opacity-50 disabled:cursor-not-allowed mb-6"
           >
             {googleLoading ? (
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -174,23 +174,23 @@ function Registration() {
 
           {/* Divider */}
           <div className="flex items-center mb-6">
-            <div className="flex-grow border-t border-gray-600"></div>
-            <span className="mx-4 text-gray-400 text-sm">OR</span>
-            <div className="flex-grow border-t border-gray-600"></div>
+            <div className="flex-grow border-t border-gray-300 dark:border-gray-600"></div>
+            <span className="mx-4 text-gray-500 dark:text-gray-500 dark:text-gray-400 text-sm">OR</span>
+            <div className="flex-grow border-t border-gray-300 dark:border-gray-600"></div>
           </div>
 
           {/* Form */}
           <form onSubmit={handleSignup} className="space-y-5">
             {/* Name Field */}
             <div className="form-element">
-              <label className="block text-gray-300 text-sm mb-2">Full Name</label>
+              <label className="block text-gray-600 dark:text-gray-600 dark:text-gray-300 text-sm mb-2">Full Name</label>
               <div className="relative">
                 <IoPerson className="absolute left-3 top-3 text-gray-400 w-5 h-5" />
                 <input
                   type="text"
                   name="name"
                   placeholder="Enter your full name"
-                  className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
+                  className="w-full pl-10 pr-4 py-3 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
                   value={formData.name}
                   onChange={handleInputChange}
                 />
@@ -200,14 +200,14 @@ function Registration() {
 
             {/* Email Field */}
             <div className="form-element">
-              <label className="block text-gray-300 text-sm mb-2">Email Address</label>
+              <label className="block text-gray-600 dark:text-gray-600 dark:text-gray-300 text-sm mb-2">Email Address</label>
               <div className="relative">
                 <IoMail className="absolute left-3 top-3 text-gray-400 w-5 h-5" />
                 <input
                   type="email"
                   name="email"
                   placeholder="Enter your email"
-                  className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
+                  className="w-full pl-10 pr-4 py-3 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
                   value={formData.email}
                   onChange={handleInputChange}
                 />
@@ -217,14 +217,14 @@ function Registration() {
 
             {/* Password Field */}
             <div className="form-element">
-              <label className="block text-gray-300 text-sm mb-2">Password</label>
+              <label className="block text-gray-600 dark:text-gray-600 dark:text-gray-300 text-sm mb-2">Password</label>
               <div className="relative">
                 <IoLockClosed className="absolute left-3 top-3 text-gray-400 w-5 h-5" />
                 <input
                   type={show ? "text" : "password"}
                   name="password"
                   placeholder="Create a strong password"
-                  className="w-full pl-10 pr-12 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
+                  className="w-full pl-10 pr-12 py-3 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
                   value={formData.password}
                   onChange={handleInputChange}
                 />
@@ -248,7 +248,7 @@ function Registration() {
                 className="w-4 h-4 text-cyan-500 bg-gray-700 border-gray-600 rounded focus:ring-cyan-500"
                 required
               />
-              <label htmlFor="terms" className="text-gray-300 text-sm">
+              <label htmlFor="terms" className="text-gray-600 dark:text-gray-600 dark:text-gray-300 text-sm">
                 I agree to the{" "}
                 <button type="button" className="text-cyan-400 hover:underline">
                   Terms of Service
@@ -278,8 +278,8 @@ function Registration() {
           </form>
 
           {/* Login Link */}
-          <div className="form-element text-center mt-6 pt-6 border-t border-gray-700">
-            <p className="text-gray-400">
+          <div className="form-element text-center mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <p className="text-gray-500 dark:text-gray-400">
               Already have an account?{" "}
               <button
                 onClick={() => navigate("/login")}

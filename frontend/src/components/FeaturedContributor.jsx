@@ -41,7 +41,7 @@ const FeaturedContributor = ({ contributor, role, description, badge }) => {
                     <p className="text-cyan-400/80 text-sm font-medium">@{contributor}</p>
                 </div>
 
-                <p className="text-gray-400 text-sm leading-relaxed mb-8 max-w-[250px]">
+                <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed mb-8 max-w-[250px]">
                     {description}
                 </p>
 

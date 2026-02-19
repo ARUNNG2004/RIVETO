@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Footer from "../components/Footer";
-import { 
-  FaShieldAlt, 
-  FaUserShield, 
-  FaLock, 
-  FaCookie, 
-  FaDatabase, 
+import {
+  FaShieldAlt,
+  FaUserShield,
+  FaLock,
+  FaCookie,
+  FaDatabase,
   FaUserCog,
   FaGavel,
   FaEnvelope,
@@ -26,7 +26,7 @@ const sections = [
         <p className="text-lg">
           We collect various types of information to provide and improve our services to you.
         </p>
-        
+
         <div className="space-y-4">
           <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-xl p-6">
             <h4 className="font-semibold text-lg text-cyan-300 mb-3 flex items-center gap-2">
@@ -104,7 +104,7 @@ const sections = [
     content: (
       <div className="space-y-4">
         <p>
-          We implement robust security measures to protect your personal information from unauthorized access, 
+          We implement robust security measures to protect your personal information from unauthorized access,
           alteration, disclosure, or destruction.
         </p>
         <div className="bg-gradient-to-r from-green-500/10 to-emerald-500/10 border border-green-500/30 rounded-xl p-6">
@@ -115,28 +115,28 @@ const sections = [
                 <FaShieldAlt />
                 <span className="font-semibold">SSL Encryption</span>
               </div>
-              <p className="text-gray-300 text-sm">All data transmitted is encrypted using industry-standard SSL/TLS protocols.</p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">All data transmitted is encrypted using industry-standard SSL/TLS protocols.</p>
             </div>
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-green-300">
                 <FaLock />
                 <span className="font-semibold">Secure Storage</span>
               </div>
-              <p className="text-gray-300 text-sm">Your data is stored in secure, encrypted databases with restricted access.</p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">Your data is stored in secure, encrypted databases with restricted access.</p>
             </div>
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-green-300">
                 <FaUserShield />
                 <span className="font-semibold">Access Control</span>
               </div>
-              <p className="text-gray-300 text-sm">Strict authentication and authorization protocols protect your account.</p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">Strict authentication and authorization protocols protect your account.</p>
             </div>
             <div className="space-y-2">
               <div className="flex items-center gap-2 text-green-300">
                 <FaCheckCircle />
                 <span className="font-semibold">Regular Audits</span>
               </div>
-              <p className="text-gray-300 text-sm">We conduct regular security audits and updates to maintain protection.</p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">We conduct regular security audits and updates to maintain protection.</p>
             </div>
           </div>
         </div>
@@ -150,7 +150,7 @@ const sections = [
     content: (
       <div className="space-y-4">
         <p>
-          We use cookies and similar tracking technologies to enhance your browsing experience 
+          We use cookies and similar tracking technologies to enhance your browsing experience
           and analyze site usage.
         </p>
         <div className="bg-orange-500/10 border border-orange-500/30 rounded-xl p-6">
@@ -160,27 +160,27 @@ const sections = [
               <div className="w-2 h-2 bg-orange-400 rounded-full mt-2"></div>
               <div>
                 <p className="font-semibold text-orange-200">Essential Cookies</p>
-                <p className="text-gray-300 text-sm">Required for basic site functionality and security.</p>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">Required for basic site functionality and security.</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <div className="w-2 h-2 bg-orange-400 rounded-full mt-2"></div>
               <div>
                 <p className="font-semibold text-orange-200">Analytics Cookies</p>
-                <p className="text-gray-300 text-sm">Help us understand how visitors interact with our site.</p>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">Help us understand how visitors interact with our site.</p>
               </div>
             </div>
             <div className="flex items-start gap-3">
               <div className="w-2 h-2 bg-orange-400 rounded-full mt-2"></div>
               <div>
                 <p className="font-semibold text-orange-200">Preference Cookies</p>
-                <p className="text-gray-300 text-sm">Remember your settings and preferences for a personalized experience.</p>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">Remember your settings and preferences for a personalized experience.</p>
               </div>
             </div>
           </div>
         </div>
         <p className="text-sm text-gray-400">
-          You can manage cookie preferences through your browser settings. Note that disabling certain 
+          You can manage cookie preferences through your browser settings. Note that disabling certain
           cookies may impact site functionality.
         </p>
       </div>
@@ -193,7 +193,7 @@ const sections = [
     content: (
       <div className="space-y-4">
         <p>
-          We do not sell your personal information. We may share data with trusted third parties only 
+          We do not sell your personal information. We may share data with trusted third parties only
           in specific circumstances:
         </p>
         <div className="space-y-3">
@@ -216,7 +216,7 @@ const sections = [
           ].map((item, i) => (
             <div key={i} className={`bg-${item.color}-500/10 border border-${item.color}-500/30 rounded-lg p-4`}>
               <h5 className={`font-semibold text-${item.color}-300 mb-2`}>{item.title}</h5>
-              <p className="text-gray-300 text-sm">{item.description}</p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">{item.description}</p>
             </div>
           ))}
         </div>
@@ -244,7 +244,7 @@ const sections = [
             <div key={i} className="bg-gray-700/30 rounded-lg p-5 hover:bg-gray-700/50 transition-all duration-300">
               <div className="text-3xl mb-2">{item.icon}</div>
               <h5 className="font-semibold text-cyan-300 mb-1">{item.title}</h5>
-              <p className="text-gray-300 text-sm">{item.desc}</p>
+              <p className="text-gray-600 dark:text-gray-300 text-sm">{item.desc}</p>
             </div>
           ))}
         </div>
@@ -267,7 +267,7 @@ const sections = [
     content: (
       <div className="space-y-4">
         <p>
-          We may update this Privacy Policy from time to time to reflect changes in our practices, 
+          We may update this Privacy Policy from time to time to reflect changes in our practices,
           technology, legal requirements, or other factors.
         </p>
         <div className="bg-gradient-to-r from-blue-500/10 to-indigo-500/10 border border-blue-500/30 rounded-xl p-6">
@@ -297,7 +297,7 @@ const sections = [
 
 const TableOfContents = ({ activeSection, onSectionClick }) => (
   <div className="lg:sticky lg:top-28 bg-gray-800/50 backdrop-blur-md rounded-2xl border border-gray-700 p-6">
-    <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
+    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-2">
       <FaFile className="text-cyan-400" />
       Quick Navigation
     </h3>
@@ -324,25 +324,25 @@ const TableOfContents = ({ activeSection, onSectionClick }) => (
 );
 
 const Section = ({ section, isActive }) => (
-  <section 
+  <section
     id={section.id}
     className={`scroll-mt-28 transform transition-all duration-500 ${
       isActive ? "scale-100 opacity-100" : "scale-95 opacity-90"
     }`}
   >
-    <div className={`bg-gray-800/30 rounded-2xl p-6 md:p-8 border transition-all duration-300 ${
+    <div className={`bg-gray-100/80 dark:bg-gray-800/30 rounded-2xl p-6 md:p-8 border transition-all duration-300 ${
       isActive ? "border-cyan-500/50 shadow-lg shadow-cyan-500/10" : "border-gray-700"
     }`}>
       <div className="flex items-center gap-4 mb-6">
         <div className={`p-4 rounded-xl transition-all duration-300 ${
-          isActive 
-            ? "bg-cyan-500 text-white shadow-lg shadow-cyan-500/30" 
+          isActive
+            ? "bg-cyan-500 text-white shadow-lg shadow-cyan-500/30"
             : "bg-gray-700/50 text-cyan-400"
         }`}>
           {section.icon}
         </div>
         <div>
-          <h2 className="text-2xl md:text-3xl font-bold text-white">{section.title}</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">{section.title}</h2>
           <div className={`h-1 w-20 rounded-full mt-2 transition-all duration-300 ${
             isActive ? "bg-cyan-400" : "bg-gray-600"
           }`}></div>
@@ -389,7 +389,7 @@ const PrivicyPolicy = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-[#0f172a] to-[#0c4a6e] pt-24 pb-1">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-[#0f172a] dark:to-[#0c4a6e] pt-24 pb-1">
       <div className="max-w-7xl mx-auto px-4 lg:px-8">
         {/* Hero Header */}
         <div className="mb-12 relative overflow-hidden">
@@ -400,17 +400,17 @@ const PrivicyPolicy = () => {
                 <div className="inline-block px-4 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-green-300 text-sm font-medium mb-4">
                   Your Privacy Matters
                 </div>
-                <h1 className="text-4xl md:text-6xl font-bold text-white mb-4 bg-gradient-to-r from-green-400 to-cyan-500 bg-clip-text text-transparent">
+                <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4 bg-gradient-to-r from-green-400 to-cyan-500 bg-clip-text text-transparent">
                   Privacy Policy
                 </h1>
-                <p className="text-gray-400 text-lg">
+                <p className="text-gray-500 dark:text-gray-400 text-lg">
                   Last updated: <span className="text-cyan-400 font-semibold">February 4, 2026</span>
                 </p>
               </div>
               <div className="bg-gradient-to-br from-green-500/20 to-cyan-500/20 rounded-2xl p-6 border border-green-500/30">
                 <div className="text-center">
                   <FaShieldAlt className="text-5xl text-green-400 mx-auto mb-2" />
-                  <p className="text-gray-300 text-sm">Protected & Secure</p>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm">Protected & Secure</p>
                 </div>
               </div>
             </div>
@@ -427,9 +427,9 @@ const PrivicyPolicy = () => {
           {/* Main Content */}
           <main className="flex-1 space-y-6">
             {sections.map((section) => (
-              <Section 
-                key={section.id} 
-                section={section} 
+              <Section
+                key={section.id}
+                section={section}
                 isActive={activeSection === section.id}
               />
             ))}
@@ -441,17 +441,17 @@ const PrivicyPolicy = () => {
                   <FaEnvelope className="text-3xl text-white" />
                 </div>
                 <div>
-                  <h2 className="text-2xl md:text-3xl font-bold text-white">Questions About Privacy?</h2>
+                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">Questions About Privacy?</h2>
                   <div className="h-1 w-20 bg-cyan-400 rounded-full mt-2"></div>
                 </div>
               </div>
-              
+
               <p className="text-gray-300 text-lg mb-6">
                 If you have any questions or concerns about our Privacy Policy, please don't hesitate to reach out.
               </p>
-              
+
               <div className="grid md:grid-cols-2 gap-4">
-                <a 
+                <a
                   href="mailto:nishantborude555@gmail.com"
                   className="group bg-gray-700/30 hover:bg-gray-700/50 rounded-xl p-6 border border-gray-600 hover:border-cyan-500/50 transition-all duration-300"
                 >
@@ -460,13 +460,13 @@ const PrivicyPolicy = () => {
                       <FaEnvelope className="text-2xl text-cyan-400 group-hover:text-white" />
                     </div>
                     <div>
-                      <p className="text-gray-400 text-sm">Email Us</p>
+                      <p className="text-gray-500 dark:text-gray-400 text-sm">Email Us</p>
                       <p className="text-white font-semibold">nishantborude555@gmail.com</p>
                     </div>
                   </div>
                 </a>
-                
-                <a 
+
+                <a
                   href="https://github.com/Nsanjayboruds"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -477,7 +477,7 @@ const PrivicyPolicy = () => {
                       <FaGithub className="text-2xl text-cyan-400 group-hover:text-white" />
                     </div>
                     <div>
-                      <p className="text-gray-400 text-sm">GitHub</p>
+                      <p className="text-gray-500 dark:text-gray-400 text-sm">GitHub</p>
                       <p className="text-white font-semibold">@Nsanjayboruds</p>
                     </div>
                   </div>
@@ -487,7 +487,7 @@ const PrivicyPolicy = () => {
           </main>
         </div>
       </div>
-      
+
       {/* Footer */}
       <div className="mt-20">
         <Footer />

@@ -200,7 +200,7 @@ function About() {
 
   return (
     <>
-    <div className="w-full min-h-screen bg-gradient-to-br from-gray-950 via-[#0a0f1a] to-[#071525] pt-24 pb-20 overflow-x-hidden">
+    <div className="w-full min-h-screen bg-gradient-to-br from-gray-50 via-white to-indigo-50 dark:from-gray-950 dark:via-[#0a0f1a] dark:to-[#071525] pt-24 pb-20 overflow-x-hidden">
       {/* Animated Background Elements */}
       <div className="fixed inset-0 overflow-hidden z-0 pointer-events-none">
         <div
@@ -296,7 +296,7 @@ function About() {
                 <div className={`text-4xl lg:text-5xl font-bold bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform duration-300`}>
                   {stat.number}
                 </div>
-                <div className="text-gray-300 text-sm font-medium">{stat.label}</div>
+                <div className="text-gray-600 dark:text-gray-300 text-sm font-medium">{stat.label}</div>
                 <div className="text-3xl mt-3 group-hover:scale-125 group-hover:rotate-12 transition-all duration-300">{stat.icon}</div>
               </div>
             </div>
@@ -334,10 +334,10 @@ function About() {
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-lg font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 transition-all duration-300">
+                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-gray-300 transition-all duration-300">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                  <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
                     {feature.text}
                   </p>
 
@@ -381,7 +381,7 @@ function About() {
                   <h4 className={`font-bold text-lg mb-2 bg-gradient-to-r ${value.color} bg-clip-text text-transparent`}>
                     {value.title}
                   </h4>
-                  <p className="text-gray-400 text-sm group-hover/item:text-gray-300 transition-colors duration-300">
+                  <p className="text-gray-500 dark:text-gray-400 text-sm group-hover/item:text-gray-300 transition-colors duration-300">
                     {value.desc}
                   </p>
                 </div>

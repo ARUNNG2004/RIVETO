@@ -51,7 +51,7 @@ function CartTotal() {
         <Title text1={'ORDER'} text2={'SUMMARY'} />
       </div>
 
-      <div className='cart-totals-container bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 p-6 shadow-xl'>
+      <div className='cart-totals-container bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 shadow-xl'>
         {/* Discount Code Section */}
         <div className='mb-6'>
           <button
@@ -141,7 +141,7 @@ function CartTotal() {
 
           {/* Total */}
           <div className='flex justify-between items-center py-4 border-t border-gray-600 mt-2'>
-            <span className='text-lg font-semibold text-white'>Total</span>
+            <span className='text-lg font-semibold text-gray-900 dark:text-white'>Total</span>
             <div className='text-right'>
               <div className='text-2xl font-bold text-cyan-400'>
                 {currency}{total.toFixed(2)}
@@ -173,10 +173,10 @@ function CartTotal() {
 
         {/* Additional Info */}
         <div className='mt-6 text-center'>
-          <p className='text-gray-400 text-sm'>
+          <p className='text-gray-500 dark:text-gray-400 text-sm'>
             📦 Orders typically ship within 24 hours
           </p>
-          <p className='text-gray-400 text-sm mt-1'>
+          <p className='text-gray-500 dark:text-gray-400 text-sm mt-1'>
             🔒 Secure checkout with 256-bit SSL encryption
           </p>
         </div>

@@ -48,7 +48,7 @@ function Login() {
 
   const validateForm = () => {
     const newErrors = {};
-    
+
     if (!formData.email.trim()) {
       newErrors.email = "Email is required";
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
@@ -80,7 +80,7 @@ function Login() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -92,7 +92,7 @@ function Login() {
         formData,
         { withCredentials: true }
       );
-      
+
       toast.success("🎉 Login successful! Welcome back to Riveto");
       setTimeout(() => {
         getCurrentUser();
@@ -111,7 +111,7 @@ function Login() {
     try {
       const response = await signInWithPopup(auth, provider);
       const user = response.user;
-      
+
       await axios.post(
         `${serverUrl}/api/auth/googlelogin`,
         {
@@ -121,7 +121,7 @@ function Login() {
         },
         { withCredentials: true }
       );
-      
+
       toast.success("🎉 Google login successful!");
       setTimeout(() => {
         getCurrentUser();
@@ -136,7 +136,7 @@ function Login() {
 
   if (preload) {
     return (
-      <div className="fixed inset-0 bg-gradient-to-br from-gray-900 via-[#0f172a] to-[#0c4a6e] flex items-center justify-center z-50">
+      <div className="fixed inset-0 bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-[#0f172a] dark:to-[#0c4a6e] flex items-center justify-center z-50">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin mb-4"></div>
           <p className="text-cyan-200 text-lg">Loading Riveto...</p>
@@ -146,7 +146,7 @@ function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-[#0f172a] to-[#0c4a6e] px-4 py-8">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-[#0f172a] dark:to-[#0c4a6e] px-4 py-8">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
@@ -157,7 +157,7 @@ function Login() {
       <div className="login-container max-w-md w-full relative z-10">
         {/* Header */}
         <div className="text-center mb-8">
-          <div 
+          <div
             onClick={() => navigate("/")}
             className="cursor-pointer mb-6 inline-block"
             aria-label="Navigate Home"
@@ -166,18 +166,18 @@ function Login() {
               Riveto
             </h1>
           </div>
-          
-          <h2 className="text-3xl font-bold text-white mb-2">Welcome Back!</h2>
-          <p className="text-cyan-100">Sign in to continue your shopping journey</p>
+
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">Welcome Back!</h2>
+          <p className="text-cyan-700 dark:text-cyan-100">Sign in to continue your shopping journey</p>
         </div>
 
         {/* Card Container */}
-        <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 p-8 shadow-2xl">
+        <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-8 shadow-2xl">
           {/* Google Login Button */}
           <button
             onClick={googleLogin}
             disabled={googleLoading}
-            className="form-element w-full flex items-center justify-center gap-3 bg-white/5 hover:bg-white/10 border border-gray-600 rounded-xl py-3 px-4 text-white font-medium transition-all duration-300 hover:border-gray-500 disabled:opacity-50 disabled:cursor-not-allowed mb-6"
+            className="form-element w-full flex items-center justify-center gap-3 bg-gray-100 hover:bg-gray-200 dark:bg-white/5 dark:hover:bg-white/10 border border-gray-300 dark:border-gray-600 rounded-xl py-3 px-4 text-gray-900 dark:text-white font-medium transition-all duration-300 hover:border-gray-400 dark:hover:border-gray-500 disabled:opacity-50 disabled:cursor-not-allowed mb-6"
           >
             {googleLoading ? (
               <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
@@ -189,23 +189,23 @@ function Login() {
 
           {/* Divider */}
           <div className="flex items-center mb-6">
-            <div className="flex-grow border-t border-gray-600"></div>
-            <span className="mx-4 text-gray-400 text-sm">OR</span>
-            <div className="flex-grow border-t border-gray-600"></div>
+            <div className="flex-grow border-t border-gray-300 dark:border-gray-600"></div>
+            <span className="mx-4 text-gray-500 dark:text-gray-500 dark:text-gray-400 text-sm">OR</span>
+            <div className="flex-grow border-t border-gray-300 dark:border-gray-600"></div>
           </div>
 
           {/* Form */}
           <form onSubmit={handleLogin} className="space-y-5">
             {/* Email Field */}
             <div className="form-element">
-              <label className="block text-gray-300 text-sm mb-2">Email Address</label>
+              <label className="block text-gray-600 dark:text-gray-600 dark:text-gray-300 text-sm mb-2">Email Address</label>
               <div className="relative">
                 <IoMail className="absolute left-3 top-3 text-gray-400 w-5 h-5" />
                 <input
                   type="email"
                   name="email"
                   placeholder="Enter your email"
-                  className="w-full pl-10 pr-4 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
+                  className="w-full pl-10 pr-4 py-3 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
                   value={formData.email}
                   onChange={handleInputChange}
                 />
@@ -215,14 +215,14 @@ function Login() {
 
             {/* Password Field */}
             <div className="form-element">
-              <label className="block text-gray-300 text-sm mb-2">Password</label>
+              <label className="block text-gray-600 dark:text-gray-600 dark:text-gray-300 text-sm mb-2">Password</label>
               <div className="relative">
                 <IoLockClosed className="absolute left-3 top-3 text-gray-400 w-5 h-5" />
                 <input
                   type={show ? "text" : "password"}
                   name="password"
                   placeholder="Enter your password"
-                  className="w-full pl-10 pr-12 py-3 bg-gray-700 border border-gray-600 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
+                  className="w-full pl-10 pr-12 py-3 bg-gray-100 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
                   value={formData.password}
                   onChange={handleInputChange}
                 />
@@ -267,8 +267,8 @@ function Login() {
           </form>
 
           {/* Sign Up Link */}
-          <div className="form-element text-center mt-6 pt-6 border-t border-gray-700">
-            <p className="text-gray-400">
+          <div className="form-element text-center mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
+            <p className="text-gray-500 dark:text-gray-400">
               Don't have an account?{" "}
               <button
                 onClick={() => navigate("/signup")}
@@ -282,23 +282,23 @@ function Login() {
 
         {/* Security Badges */}
         <div className="form-element mt-6 grid grid-cols-3 gap-4 text-center">
-          <div className="p-3 bg-gray-800/50 rounded-lg">
+          <div className="p-3 bg-gray-100/80 dark:bg-gray-800/50 rounded-lg">
             <div className="w-8 h-8 bg-green-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
               <span className="text-green-400 text-sm">🔒</span>
             </div>
-            <p className="text-gray-400 text-xs">Secure Login</p>
+            <p className="text-gray-500 dark:text-gray-400 text-xs">Secure Login</p>
           </div>
-          <div className="p-3 bg-gray-800/50 rounded-lg">
+          <div className="p-3 bg-gray-100/80 dark:bg-gray-800/50 rounded-lg">
             <div className="w-8 h-8 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
               <span className="text-blue-400 text-sm">🛡️</span>
             </div>
-            <p className="text-gray-400 text-xs">Data Protected</p>
+            <p className="text-gray-500 dark:text-gray-400 text-xs">Data Protected</p>
           </div>
-          <div className="p-3 bg-gray-800/50 rounded-lg">
+          <div className="p-3 bg-gray-100/80 dark:bg-gray-800/50 rounded-lg">
             <div className="w-8 h-8 bg-cyan-500/20 rounded-full flex items-center justify-center mx-auto mb-2">
               <span className="text-cyan-400 text-sm">⚡</span>
             </div>
-            <p className="text-gray-400 text-xs">Fast Access</p>
+            <p className="text-gray-500 dark:text-gray-400 text-xs">Fast Access</p>
           </div>
         </div>
       </div>

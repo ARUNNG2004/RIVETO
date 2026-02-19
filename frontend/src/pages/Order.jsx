@@ -3,8 +3,8 @@ import Title from '../components/Title';
 import { shopDataContext } from '../context/ShopContext';
 import { authDataContext } from '../context/AuthContext';
 import axios from 'axios';
-import { 
-  FaBox, FaShoppingBag, FaShippingFast, FaCheckCircle, 
+import {
+  FaBox, FaShoppingBag, FaShippingFast, FaCheckCircle,
   FaClock, FaMoneyBillWave, FaCreditCard, FaCalendarAlt,
   FaMapMarkerAlt, FaPhone, FaEnvelope, FaUndo, FaStar
 } from 'react-icons/fa';
@@ -148,7 +148,7 @@ function Order() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-[#0f172a] to-[#0c4a6e] flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-[#0f172a] dark:to-[#0c4a6e] flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-cyan-200 text-lg">Loading your orders...</p>
@@ -158,7 +158,7 @@ function Order() {
   }
 
   return (
-    <div ref={sectionRef} className="min-h-screen bg-gradient-to-br from-gray-900 via-[#0f172a] to-[#0c4a6e] pt-24 pb-20 px-4">
+    <div ref={sectionRef} className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-[#0f172a] dark:to-[#0c4a6e] pt-24 pb-20 px-4">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
@@ -169,7 +169,7 @@ function Order() {
         {/* Header */}
         <div className="text-center mb-8">
           <Title text1='MY' text2='ORDERS' />
-          <p className="text-cyan-100 mt-4">Track and manage all your purchases in one place</p>
+          <p className="text-cyan-700 dark:text-cyan-100 mt-4">Track and manage all your purchases in one place</p>
         </div>
 
         {/* Filter Tabs */}
@@ -183,7 +183,7 @@ function Order() {
                 className={`flex items-center gap-2 px-4 py-2 rounded-xl transition-all duration-300 ${
                   filterStatus === filter.value
                     ? 'bg-cyan-500 text-white shadow-lg'
-                    : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                    : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
                 }`}
               >
                 <IconComponent className="w-4 h-4" />
@@ -197,7 +197,7 @@ function Order() {
         <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/20 rounded-2xl p-4 mb-8">
           <div className="flex flex-wrap justify-between items-center">
             <div>
-              <h3 className="text-white font-semibold">Order Summary</h3>
+              <h3 className="text-gray-900 dark:text-white font-semibold">Order Summary</h3>
               <p className="text-cyan-100 text-sm">
                 {filteredOrders.length} order{filteredOrders.length !== 1 ? 's' : ''} found
               </p>
@@ -213,7 +213,7 @@ function Order() {
         {/* Orders List */}
         <div className="space-y-6">
           {filteredOrders.length === 0 ? (
-            <div className="text-center py-16 bg-gray-800/30 rounded-2xl">
+            <div className="text-center py-16 bg-gray-100/80 dark:bg-gray-800/30 rounded-2xl">
               <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-gray-800 to-gray-900 rounded-full flex items-center justify-center">
                 <FaShoppingBag className="text-gray-600 text-3xl" />
               </div>
@@ -232,7 +232,7 @@ function Order() {
               return (
                 <div
                   key={index}
-                  className="order-item bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 p-6 shadow-xl"
+                  className="order-item bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 shadow-xl"
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                     {/* Product Info */}
@@ -245,7 +245,7 @@ function Order() {
                       <div>
                         <h3 className="text-white font-semibold text-lg mb-1">{item.name}</h3>
                         <p className="text-cyan-400 font-bold text-xl">{currency}{item.price}</p>
-                        <p className="text-gray-400 text-sm">Quantity: {item.quantity || 1}</p>
+                        <p className="text-gray-500 dark:text-gray-400 text-sm">Quantity: {item.quantity || 1}</p>
                       </div>
                     </div>
 
@@ -285,8 +285,8 @@ function Order() {
                               return (
                                 <div key={idx} className="flex flex-col items-center">
                                   <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                                    isCompleted 
-                                      ? `bg-gradient-to-r ${step.color} text-white` 
+                                    isCompleted
+                                      ? `bg-gradient-to-r ${step.color} text-white`
                                       : 'bg-gray-700 text-gray-400'
                                   }`}>
                                     <StepIcon className="w-4 h-4" />

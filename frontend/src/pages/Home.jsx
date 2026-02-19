@@ -50,9 +50,9 @@ function Home() {
     // Product section animation
     if (productRef.current) {
       gsap.fromTo(productRef.current.children,
-        { 
-          opacity: 0, 
-          y: 100, 
+        {
+          opacity: 0,
+          y: 100,
           scale: 0.9,
           rotateX: 15
         },
@@ -77,8 +77,8 @@ function Home() {
     // Policy section animation
     if (policyRef.current) {
       gsap.fromTo(policyRef.current,
-        { 
-          opacity: 0, 
+        {
+          opacity: 0,
           x: -80,
           filter: 'blur(10px)'
         },
@@ -100,8 +100,8 @@ function Home() {
     // Newsletter section animation
     if (newsletterRef.current) {
       gsap.fromTo(newsletterRef.current,
-        { 
-          opacity: 0, 
+        {
+          opacity: 0,
           y: 60,
           scale: 0.95
         },
@@ -123,8 +123,8 @@ function Home() {
     // Footer animation
     if (footerRef.current) {
       gsap.fromTo(footerRef.current,
-        { 
-          opacity: 0, 
+        {
+          opacity: 0,
           y: 40
         },
         {
@@ -148,10 +148,10 @@ function Home() {
   }, []);
 
   return (
-    <div className='overflow-x-hidden bg-gradient-to-b from-[#0a0a0f] via-[#0d0d15] to-[#0a0a0f] min-h-screen'>
+    <div className='overflow-x-hidden bg-gradient-to-b from-gray-50 via-white to-gray-50 dark:from-[#0a0a0f] dark:via-[#0d0d15] dark:to-[#0a0a0f] min-h-screen'>
       {/* Animated Background Orbs */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div 
+        <div
           className="absolute w-[800px] h-[800px] rounded-full blur-[150px] opacity-10"
           style={{
             background: 'radial-gradient(circle, #3b82f6, transparent)',
@@ -161,7 +161,7 @@ function Home() {
             transition: 'transform 0.3s ease-out',
           }}
         />
-        <div 
+        <div
           className="absolute w-[600px] h-[600px] rounded-full blur-[120px] opacity-10"
           style={{
             background: 'radial-gradient(circle, #8b5cf6, transparent)',
@@ -171,7 +171,7 @@ function Home() {
             transition: 'transform 0.3s ease-out',
           }}
         />
-        <div 
+        <div
           className="absolute w-[500px] h-[500px] rounded-full blur-[100px] opacity-8"
           style={{
             background: 'radial-gradient(circle, #06b6d4, transparent)',
@@ -187,7 +187,7 @@ function Home() {
       <div className='relative w-screen h-screen overflow-hidden'>
         <Background heroCount={heroCount} />
         <Hero heroCount={heroCount} heroData={heroData[heroCount]} setHeroCount={setHeroCount} />
-        
+
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center animate-bounce-scale">
           <span className="text-white/60 text-sm mb-2 tracking-widest">SCROLL</span>
@@ -196,7 +196,7 @@ function Home() {
           </div>
         </div>
       </div>
-        
+
       {/* Animated Product Section */}
       <div ref={productRef} className="relative z-10">
         <Product />

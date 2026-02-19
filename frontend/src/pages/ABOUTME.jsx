@@ -122,7 +122,7 @@ function ABOUTME() {
   ];
 
   return (
-    <div ref={sectionRef} className="min-h-screen bg-gradient-to-br from-gray-900 via-[#0f172a] to-[#0c4a6e] py-20 px-4 overflow-x-hidden">
+    <div ref={sectionRef} className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-[#0f172a] dark:to-[#0c4a6e] py-20 px-4 overflow-x-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
@@ -133,7 +133,7 @@ function ABOUTME() {
       <div className="max-w-6xl mx-auto relative z-10">
         {/* Header Section */}
         <div className="text-center mb-16 aboutme-section">
-          <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             About <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">Me</span>
           </h1>
           <p className="text-lg text-cyan-100 max-w-2xl mx-auto">
@@ -162,30 +162,30 @@ function ABOUTME() {
           {/* About Text */}
           <div className="lg:col-span-2 aboutme-section">
             <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-2xl border border-gray-700 h-full">
-              <h2 className="text-2xl font-bold text-white mb-6">Hello! I'm Nishant 👋</h2>
-              
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Hello! I'm Nishant 👋</h2>
+
               <div className="space-y-4 text-gray-300">
                 <p>
-                  I'm a passionate Full Stack Developer with over 3 years of experience in creating 
-                  innovative web applications. I specialize in JavaScript technologies, particularly 
+                  I'm a passionate Full Stack Developer with over 3 years of experience in creating
+                  innovative web applications. I specialize in JavaScript technologies, particularly
                   React and Node.js, and I love turning complex problems into simple, beautiful solutions.
                 </p>
-                
+
                 <p>
-                  My journey in web development started during my computer science studies, and I've been 
-                  hooked ever since. I enjoy every aspect of development - from designing intuitive user 
+                  My journey in web development started during my computer science studies, and I've been
+                  hooked ever since. I enjoy every aspect of development - from designing intuitive user
                   interfaces to building robust backend systems.
                 </p>
 
                 <p>
-                  When I'm not coding, you can find me exploring new technologies, contributing to open 
+                  When I'm not coding, you can find me exploring new technologies, contributing to open
                   source projects, or sharing knowledge with the developer community.
                 </p>
               </div>
 
               {/* Social Links */}
               <div className="mt-8">
-                <h3 className="text-lg font-semibold text-white mb-4">Connect with me</h3>
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">Connect with me</h3>
                 <div className="flex gap-3">
                   {socialLinks.map((social, index) => (
                     <a
@@ -215,8 +215,8 @@ function ABOUTME() {
 
         {/* Skills Section */}
         <div ref={skillsRef} className="mb-20">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">Technical Skills</h2>
-          
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">Technical Skills</h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Frontend Skills */}
             <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl border border-gray-700">
@@ -234,7 +234,7 @@ function ABOUTME() {
                       <span className="text-cyan-400 text-sm">{skill.level}%</span>
                     </div>
                     <div className="w-full bg-gray-700 rounded-full h-2">
-                      <div 
+                      <div
                         className="bg-gradient-to-r from-cyan-500 to-blue-600 h-2 rounded-full transition-all duration-1000"
                         style={{ width: `${skill.level}%` }}
                       ></div>
@@ -260,7 +260,7 @@ function ABOUTME() {
                       <span className="text-cyan-400 text-sm">{skill.level}%</span>
                     </div>
                     <div className="w-full bg-gray-700 rounded-full h-2">
-                      <div 
+                      <div
                         className="bg-gradient-to-r from-green-500 to-emerald-600 h-2 rounded-full transition-all duration-1000"
                         style={{ width: `${skill.level}%` }}
                       ></div>
@@ -286,7 +286,7 @@ function ABOUTME() {
                       <span className="text-cyan-400 text-sm">{skill.level}%</span>
                     </div>
                     <div className="w-full bg-gray-700 rounded-full h-2">
-                      <div 
+                      <div
                         className="bg-gradient-to-r from-purple-500 to-pink-600 h-2 rounded-full transition-all duration-1000"
                         style={{ width: `${skill.level}%` }}
                       ></div>
@@ -312,7 +312,7 @@ function ABOUTME() {
                       <span className="text-cyan-400 text-sm">{skill.level}%</span>
                     </div>
                     <div className="w-full bg-gray-700 rounded-full h-2">
-                      <div 
+                      <div
                         className="bg-gradient-to-r from-orange-500 to-amber-600 h-2 rounded-full transition-all duration-1000"
                         style={{ width: `${skill.level}%` }}
                       ></div>
@@ -326,14 +326,14 @@ function ABOUTME() {
 
         {/* Projects Section */}
         <div ref={projectsRef} className="aboutme-section">
-          <h2 className="text-3xl font-bold text-white text-center mb-12">Featured Projects</h2>
-          
+          <h2 className="text-3xl font-bold text-gray-900 dark:text-white text-center mb-12">Featured Projects</h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {projects.map((project, index) => (
               <div key={index} className="bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-2xl border border-gray-700 hover:border-cyan-400/30 transition-all duration-500 hover:-translate-y-2">
-                <h3 className="text-xl font-semibold text-white mb-3">{project.title}</h3>
-                <p className="text-gray-300 text-sm mb-4">{project.description}</p>
-                
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">{project.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">{project.description}</p>
+
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tech.map((tech, techIndex) => (
                     <span key={techIndex} className="px-3 py-1 bg-cyan-500/10 text-cyan-300 text-xs rounded-full">
@@ -341,7 +341,7 @@ function ABOUTME() {
                     </span>
                   ))}
                 </div>
-                
+
                 <a
                   href={project.link}
                   target="_blank"

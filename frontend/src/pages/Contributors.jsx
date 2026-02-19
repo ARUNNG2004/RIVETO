@@ -44,7 +44,7 @@ const Contributors = () => {
 
     if (error) {
         return (
-            <div className="min-h-screen bg-black flex items-center justify-center p-4">
+            <div className="min-h-screen bg-white dark:bg-black flex items-center justify-center p-4">
                 <div className="text-center p-8 rounded-3xl bg-red-500/10 border border-red-500/20 backdrop-blur-xl">
                     <h2 className="text-2xl font-bold text-red-500 mb-2">Oops! Something went wrong</h2>
                     <p className="text-gray-400 mb-6">{error}</p>
@@ -60,7 +60,7 @@ const Contributors = () => {
     }
 
     return (
-        <div className="bg-[#000000] min-h-screen overflow-x-hidden pt-20">
+        <div className="bg-gray-50 dark:bg-[#000000] min-h-screen overflow-x-hidden pt-20">
             {/* Background Orbs */}
             <div className="fixed inset-0 pointer-events-none z-0">
                 <div className="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-cyan-500/10 rounded-full blur-[120px] animate-pulse" />
@@ -78,7 +78,7 @@ const Contributors = () => {
                         <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-400 to-blue-600">
                             Our Amazing <br /> Contributors
                         </h1>
-                        <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-medium">
+                        <p className="text-gray-500 dark:text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-medium">
                             The brilliant minds building RIVETO together. We celebrate every commit, every idea, and every contributor.
                         </p>
                     </motion.div>
@@ -187,7 +187,7 @@ const Contributors = () => {
                         <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 opacity-0 hover:opacity-10 transition-opacity duration-500" />
                         <div className="relative z-10">
                             <h2 className="text-4xl font-black text-white mb-6 tracking-tight">Want to see your name here?</h2>
-                            <p className="text-gray-400 text-lg max-w-xl mx-auto mb-10">
+                            <p className="text-gray-500 dark:text-gray-400 text-lg max-w-xl mx-auto mb-10">
                                 Join our community and start contributing to RIVETO. Whether it's code, design, or documentation, every contribution counts!
                             </p>
                             <motion.a

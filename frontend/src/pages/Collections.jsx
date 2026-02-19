@@ -19,7 +19,7 @@ const Loader = () => {
         <div className="absolute inset-2 border-4 border-cyan-300 border-b-transparent rounded-full animate-spin-reverse"></div>
       </div>
       <p className="text-cyan-200 text-lg font-medium">Loading Products...</p>
-      <p className="text-gray-400 text-sm mt-2">Discovering amazing items for you</p>
+      <p className="text-gray-500 dark:text-gray-400 text-sm mt-2">Discovering amazing items for you</p>
     </div>
   );
 };
@@ -70,7 +70,7 @@ const FilterContent = ({
 
       {/* Price Range Filter */}
       <div className='mb-6'>
-        <h3 className='text-lg font-semibold text-white mb-3 flex items-center gap-2'>
+        <h3 className='text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2'>
           <RiPriceTag3Line className='text-cyan-400' />
           Price Range
         </h3>
@@ -84,15 +84,15 @@ const FilterContent = ({
             className='w-full h-2 bg-gray-700 rounded-lg appearance-none cursor-pointer slider-thumb'
           />
           <div className='flex justify-between mt-2'>
-            <span className='text-gray-400 text-sm'>${priceRange[0]}</span>
-            <span className='text-gray-400 text-sm'>${priceRange[1]}</span>
+            <span className='text-gray-500 dark:text-gray-400 text-sm'>${priceRange[0]}</span>
+            <span className='text-gray-500 dark:text-gray-400 text-sm'>${priceRange[1]}</span>
           </div>
         </div>
       </div>
 
       {/* Category Filter */}
       <div className='mb-6'>
-        <h3 className='text-lg font-semibold text-white mb-3'>Category</h3>
+        <h3 className='text-lg font-semibold text-gray-900 dark:text-white mb-3'>Category</h3>
         <div className='space-y-2'>
           {categories.map((cat, i) => (
             <button
@@ -111,7 +111,7 @@ const FilterContent = ({
 
       {/* Sub-Category Filter */}
       <div className='mb-6'>
-        <h3 className='text-lg font-semibold text-white mb-3'>Sub-Category</h3>
+        <h3 className='text-lg font-semibold text-gray-900 dark:text-white mb-3'>Sub-Category</h3>
         <div className='space-y-2'>
           {subCategories.map((sub, i) => (
             <button
@@ -130,7 +130,7 @@ const FilterContent = ({
 
       {/* Rating Filter */}
       <div className='mb-6'>
-        <h3 className='text-lg font-semibold text-white mb-3'>Rating</h3>
+        <h3 className='text-lg font-semibold text-gray-900 dark:text-white mb-3'>Rating</h3>
         <div className='space-y-2'>
           {ratings.map((rating, i) => (
             <button
@@ -341,16 +341,16 @@ function Collections() {
 
   return (
     <>
-      <div className='min-h-screen bg-gradient-to-br from-gray-900 via-[#0f172a] to-[#0c4a6e] pt-24 pb-20 overflow-x-hidden'>
+      <div className='min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-[#0f172a] dark:to-[#0c4a6e] pt-24 pb-20 overflow-x-hidden'>
         {/* Main Content */}
         <div className='max-w-7xl mx-auto px-4 lg:px-8 flex flex-col lg:flex-row gap-8'>
           {/* Filter Sidebar - Desktop Only */}
           <div
             ref={filterRef}
-            className='hidden lg:block lg:w-80 bg-gray-800/50 backdrop-blur-md rounded-2xl border border-gray-700 p-6 sticky top-24 h-fit'
+            className='hidden lg:block lg:w-80 bg-white/80 dark:bg-gray-800/50 backdrop-blur-md rounded-2xl border border-gray-200 dark:border-gray-700 p-6 sticky top-24 h-fit'
           >
             <div className='flex items-center justify-between mb-6'>
-              <h2 className='text-xl font-bold text-white flex items-center gap-2'>
+              <h2 className='text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2'>
                 <FaFilter className='text-cyan-400' />
                 Filters {activeFilters > 0 && `(${activeFilters})`}
               </h2>
@@ -376,14 +376,14 @@ function Collections() {
           {/* Products Section */}
           <div className='flex-1' ref={contentRef}>
             {/* Header */}
-            <div className='flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-8 p-6 bg-gray-800/50 rounded-2xl backdrop-blur-md border border-gray-700'>
-              <h1 className='text-3xl font-extrabold text-white tracking-tight'>ALL <span className='text-cyan-400'>COLLECTIONS</span></h1>
+            <div className='flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-8 p-6 bg-white/80 dark:bg-gray-800/50 rounded-2xl backdrop-blur-md border border-gray-200 dark:border-gray-700'>
+              <h1 className='text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight'>ALL <span className='text-cyan-600 dark:text-cyan-400'>COLLECTIONS</span></h1>
 
               <div className='flex items-center gap-4'>
                 {/* Mobile Filter Toggle */}
                 <button
                   onClick={() => setShowFilter(!showFilter)}
-                  className='lg:hidden flex items-center gap-2 px-4 py-2 bg-gray-700 rounded-lg text-white'
+                  className='lg:hidden flex items-center gap-2 px-4 py-2 bg-gray-100 dark:bg-gray-700 rounded-lg text-gray-900 dark:text-white'
                 >
                   <FaFilter className='text-cyan-400' />
                   Filters {activeFilters > 0 && `(${activeFilters})`}
@@ -394,7 +394,7 @@ function Collections() {
                   <select
                     value={sortType}
                     onChange={(e) => setSortType(e.target.value)}
-                    className='w-full appearance-none bg-gray-700 text-white px-3 py-2 sm:px-4 rounded-lg pr-8 sm:pr-10 focus:outline-none focus:ring-2 focus:ring-cyan-500 border border-gray-600 text-sm'
+                    className='w-full appearance-none bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white px-3 py-2 sm:px-4 rounded-lg pr-8 sm:pr-10 focus:outline-none focus:ring-2 focus:ring-cyan-500 border border-gray-200 dark:border-gray-600 text-sm'
                   >
                     <option value="relevant">Sort by: Relevant</option>
                     <option value="low-high">Sort by: Price Low to High</option>
@@ -449,7 +449,7 @@ function Collections() {
                 )}
               </>
             ) : (
-              <div className='text-center py-16 bg-gray-800/30 rounded-2xl'>
+              <div className='text-center py-16 bg-gray-100/80 dark:bg-gray-800/30 rounded-2xl'>
                 <div className='w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-gray-800 to-gray-900 rounded-full flex items-center justify-center'>
                   <FaSearch className='text-gray-600 text-3xl' />
                 </div>
@@ -479,7 +479,7 @@ function Collections() {
               onClick={(e) => e.stopPropagation()}
             >
               <div className='flex items-center justify-between mb-6'>
-                <h2 className='text-xl font-bold text-white flex items-center gap-2'>
+                <h2 className='text-xl font-bold text-gray-900 dark:text-white flex items-center gap-2'>
                   <FaFilter className='text-cyan-400' />
                   Filters {activeFilters > 0 && `(${activeFilters})`}
                 </h2>

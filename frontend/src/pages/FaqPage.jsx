@@ -45,32 +45,32 @@ const faqs = [
 ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-[#0f172a] to-[#0c4a6e] pt-24 pb-1 text-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-[#0f172a] dark:to-[#0c4a6e] pt-24 pb-1 text-gray-900 dark:text-white">
          <section className="py-16 md:py-24">
             <div className="mx-auto max-w-7xl px-4 md:px-8">
                 <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
-                    <h2 className="text-4xl md:text-5xl font-bold text-white">Frequently asked questions</h2>
-                    <p className="mt-4 text-lg text-gray-400 md:mt-5 md:text-xl">Everything you need to know about the product and billing. </p>
+                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">Frequently asked questions</h2>
+                    <p className="mt-4 text-lg text-gray-500 dark:text-gray-400 md:mt-5 md:text-xl">Everything you need to know about the product and billing. </p>
                 </div>
- 
+
                 <div className="mt-12 md:mt-16">
                     <dl className="grid w-full grid-cols-1 justify-items-center gap-x-8 gap-y-10 sm:grid-cols-2 md:gap-y-16 lg:grid-cols-3">
                         {faqs.map((item, index) => (
                             <div key={index}>
                                 <div className="flex max-w-sm flex-col items-center text-center">
-                                    <div className="p-4 bg-gray-800/50 rounded-xl border border-gray-700">
+                                    <div className="p-4 bg-gray-100/80 dark:bg-gray-800/50 rounded-xl border border-gray-200 dark:border-gray-700">
                                         <item.icon className="text-3xl text-cyan-400" />
                                     </div>
- 
-                                    <dt className="mt-4 text-lg font-semibold text-white">{item.question}</dt>
-                                    <dd className="mt-2 text-base text-gray-300">{item.answer}</dd>
+
+                                    <dt className="mt-4 text-lg font-semibold text-gray-900 dark:text-white">{item.question}</dt>
+                                    <dd className="mt-2 text-base text-gray-600 dark:text-gray-300">{item.answer}</dd>
                                 </div>
                             </div>
                         ))}
                     </dl>
                 </div>
- 
-                <div className="mt-12 flex flex-col items-center gap-6 rounded-2xl bg-gray-800/50 backdrop-blur-md border border-gray-700 px-6 py-8 text-center md:mt-16 md:gap-8 md:px-8 md:py-10">
+
+                <div className="mt-12 flex flex-col items-center gap-6 rounded-2xl bg-gray-100/80 dark:bg-gray-800/50 backdrop-blur-md border border-gray-200 dark:border-gray-700 px-6 py-8 text-center md:mt-16 md:gap-8 md:px-8 md:py-10">
                     <div className="flex items-end -space-x-4">
                         <img
                             src="https://www.untitledui.com/images/avatars/marco-kelly?fm=webp&q=80"
@@ -89,11 +89,11 @@ const faqs = [
                         />
                     </div>
                     <div>
-                        <h4 className="text-xl font-semibold text-white">Still have questions?</h4>
+                        <h4 className="text-xl font-semibold text-gray-900 dark:text-white">Still have questions?</h4>
                         <p className="mt-2 text-base md:text-lg text-gray-300">Can't find the answer you're looking for? Please chat to our friendly team.</p>
                     </div>
-                    <a 
-                        href='https://github.com/Nsanjayboruds' 
+                    <a
+                        href='https://github.com/Nsanjayboruds'
                         target="_blank"
                         rel="noopener noreferrer"
                         className="px-6 py-3 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg font-semibold transition-colors"

@@ -59,7 +59,7 @@ function Cart() {
 
   const handleQuantityChange = (productId, size, newQuantity) => {
     if (newQuantity < 0) return;
-    
+
     if (newQuantity === 0) {
       if (window.confirm('Are you sure you want to remove this item from your cart?')) {
         UpdateQuantity(productId, size, 0);
@@ -79,7 +79,7 @@ function Cart() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-gray-900 via-[#0f172a] to-[#0c4a6e] flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-[#0f172a] dark:to-[#0c4a6e] flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-cyan-200 text-lg">Loading your cart...</p>
@@ -89,7 +89,7 @@ function Cart() {
   }
 
   return (
-    <div ref={sectionRef} className="min-h-screen bg-gradient-to-br from-gray-900 via-[#0f172a] to-[#0c4a6e] pt-24 pb-20 px-4">
+    <div ref={sectionRef} className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-900 dark:via-[#0f172a] dark:to-[#0c4a6e] pt-24 pb-20 px-4">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-cyan-500/5 rounded-full blur-3xl"></div>
@@ -100,13 +100,13 @@ function Cart() {
         {/* Header */}
         <div className="text-center mb-8">
           <Title text1={"SHOPPING"} text2={"CART"} />
-          <p className="text-cyan-100 mt-4">Review and manage your items</p>
+          <p className="text-cyan-700 dark:text-cyan-100 mt-4">Review and manage your items</p>
         </div>
 
         {/* Back to Shopping Button */}
         <button
           onClick={() => navigate('/collection')}
-          className="flex items-center gap-2 px-6 py-3 bg-gray-800 hover:bg-gray-700 text-white rounded-xl mb-8 transition-colors"
+          className="flex items-center gap-2 px-6 py-3 bg-gray-100 hover:bg-gray-200 dark:bg-gray-800 dark:hover:bg-gray-700 text-gray-900 dark:text-white rounded-xl mb-8 transition-colors"
         >
           <FaArrowLeft className="w-4 h-4" />
           Continue Shopping
@@ -116,7 +116,7 @@ function Cart() {
           {/* Cart Items */}
           <div className="lg:col-span-2">
             {cartData.length === 0 ? (
-              <div className="text-center py-16 bg-gray-800/30 rounded-2xl">
+              <div className="text-center py-16 bg-gray-100/80 dark:bg-gray-800/30 rounded-2xl">
                 <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-gray-800 to-gray-900 rounded-full flex items-center justify-center">
                   <FaShoppingBasket className="text-gray-600 text-3xl" />
                 </div>
@@ -154,7 +154,7 @@ function Cart() {
                   }
 
                   return (
-                    <div key={index} className="cart-item bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 p-6 hover:border-cyan-400/30 transition-all duration-500">
+                    <div key={index} className="cart-item bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 hover:border-cyan-400/30 transition-all duration-500">
                       <div className="flex flex-col md:flex-row gap-6">
                         {/* Product Image */}
                         <div className="flex-shrink-0">
@@ -176,7 +176,7 @@ function Cart() {
                           <p className="text-cyan-400 font-bold text-xl mb-3">
                             {currency}{calculateItemTotal(productData.price, item.quantity)}
                           </p>
-                          <p className="text-gray-400 text-sm">
+                          <p className="text-gray-500 dark:text-gray-400 text-sm">
                             {currency}{productData.price} × {item.quantity}
                           </p>
                         </div>
@@ -200,7 +200,7 @@ function Cart() {
                               <RiSubtractLine className="w-4 h-4" />
                             </button>
 
-                            <span className="w-8 text-center font-bold text-white">{item.quantity}</span>
+                            <span className="w-8 text-center font-bold text-gray-900 dark:text-white">{item.quantity}</span>
 
                             <button
                               onClick={() => handleQuantityChange(item._id, item.size, item.quantity + 1)}
@@ -222,14 +222,14 @@ function Cart() {
           {/* Order Summary */}
           <div className="lg:col-span-1">
             <div className="sticky top-24 space-y-6">
-              <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 p-6">
-                <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
+              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-6">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
                   <RiShoppingBag3Line className="w-5 h-5 text-cyan-400" />
                   Order Summary
                 </h3>
-                
+
                 <CartTotal />
-                
+
                 <button
                   className={`w-full mt-6 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg ${
                     cartData.length > 0
@@ -251,14 +251,14 @@ function Cart() {
                 </button>
 
                 {cartData.length > 0 && (
-                  <p className="text-center text-gray-400 text-sm mt-4">
+                  <p className="text-center text-gray-500 dark:text-gray-400 text-sm mt-4">
                     🚚 Free shipping on orders over {currency}50
                   </p>
                 )}
               </div>
 
               {/* Security Badges */}
-              <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl border border-gray-700 p-6">
+              <div className="bg-gradient-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 rounded-2xl border border-gray-200 dark:border-gray-700 p-6">
                 <h4 className="text-white font-semibold mb-4">Secure Shopping</h4>
                 <div className="grid grid-cols-2 gap-4 text-center">
                   <div className="p-3 bg-green-500/10 rounded-lg">

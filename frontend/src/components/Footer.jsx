@@ -45,7 +45,7 @@ function Footer() {
     setTimeout(() => {
       setIsSubscribed(true);
       toast.success('🎁 You’ve successfully subscribed to Riveto! Enjoy exclusive offers.');
-      
+
       // Reset after 5 seconds
       setTimeout(() => {
         setIsSubscribed(false);
@@ -55,17 +55,17 @@ function Footer() {
   };
 
   return (
-    <footer ref={footerRef} className="w-full bg-gradient-to-b from-gray-900 to-gray-950 text-gray-300 border-t border-gray-800 relative overflow-hidden">
+    <footer ref={footerRef} className="w-full bg-gradient-to-b from-gray-100 to-gray-200 dark:from-gray-900 dark:to-gray-950 text-gray-600 dark:text-gray-300 border-t border-gray-200 dark:border-gray-800 relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCI+CiAgPHBhdGggZD0iTTAgMGg2MHY2MEgweiIgZmlsbD0ibm9uZSIvPgogIDxwYXRoIGQ9Ik0zMCAzMG0tMjggMGEyOCwyOCAwIDEsMSA1NiwwYTI4LDI4IDAgMSwxIC01NiwwIiBzdHJva2U9InJnYmEoMjU1LDI1NSwyNTUsMC4wMykiIHN0cm9rZS13aWR0aD0iMC41IiBmaWxsPSJub25lIi8+Cjwvc3ZnPg==')] opacity-20"></div>
-      
+
       {/* Decorative Elements */}
       <div className="absolute -top-20 -right-20 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl"></div>
       <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-blue-500/10 rounded-full blur-3xl"></div>
 
       {/* Main Footer Content */}
       <div className="max-w-7xl mx-auto py-16 px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 relative z-10">
-        
+
         {/* Brand Info */}
         <div className="footer-section">
           <div className="flex items-center gap-3 mb-6">
@@ -79,7 +79,7 @@ function Footer() {
           <p className="text-sm leading-relaxed text-gray-400 mb-6">
             RIVETO is a premium e-commerce platform built for the modern shopper. Experience seamless shopping with cutting-edge technology and exceptional service.
           </p>
-          
+
           {/* Social Media */}
           <div className="flex gap-3">
             {[
@@ -102,7 +102,7 @@ function Footer() {
 
         {/* Quick Links */}
         <div className="footer-section">
-          <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
             <RiCustomerService2Fill className="text-cyan-400" />
             Quick Links
           </h3>
@@ -120,7 +120,7 @@ function Footer() {
 
         {/* Support */}
         <div className="footer-section">
-          <h3 className="text-lg font-semibold text-white mb-6 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6 flex items-center gap-2">
             <BiSupport className="text-cyan-400" />
             Support
           </h3>
@@ -144,7 +144,7 @@ function Footer() {
 
         {/* Contact Info */}
         <div className="footer-section">
-          <h3 className="text-lg font-semibold text-white mb-6">Get in Touch</h3>
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-6">Get in Touch</h3>
           <ul className="space-y-4">
             <li className="flex items-start gap-3">
               <div className="w-8 h-8 bg-cyan-500/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
@@ -156,7 +156,7 @@ function Footer() {
                 <p className="text-sm text-gray-400">+1 123 456 7890</p>
               </div>
             </li>
-            
+
             <li className="flex items-start gap-3">
               <div className="w-8 h-8 bg-cyan-500/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
                 <FaEnvelope className="w-3 h-3 text-cyan-400" />
@@ -167,7 +167,7 @@ function Footer() {
                 <p className="text-sm text-gray-400">support@riveto.com</p>
               </div>
             </li>
-            
+
             <li className="flex items-start gap-3">
               <div className="w-8 h-8 bg-cyan-500/10 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
                 <FaMapMarkerAlt className="w-3 h-3 text-cyan-400" />
@@ -198,7 +198,7 @@ function Footer() {
                 onChange={(e) => setEmail(e.target.value)}
                 className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent w-full sm:w-64"
               />
-              <button 
+              <button
                 onClick={handleSubscribe}
                 className="px-6 py-2 bg-gradient-to-r from-cyan-500 to-blue-600 text-white rounded-lg hover:shadow-lg transition-all duration-300 whitespace-nowrap"
               >
@@ -216,13 +216,13 @@ function Footer() {
           <p className="text-xs text-gray-500 text-center md:text-left">
             © {currentYear} <span className="text-cyan-400 font-medium">RIVETO</span> — All rights reserved.
           </p>
-          
+
           <div className="flex items-center gap-6 text-xs text-gray-500">
             <span>Terms of Service</span>
             <span>Privacy Policy</span>
             <span>Cookie Policy</span>
           </div>
-          
+
           <div className="flex items-center gap-2 text-xs text-gray-500">
             <span>Made with</span>
             <FaHeart className="text-rose-500 animate-pulse" />

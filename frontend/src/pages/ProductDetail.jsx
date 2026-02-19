@@ -30,9 +30,9 @@ function ProductDetail() {
 
   useEffect(() => {
     if (!productData) return;
-    
+
     // Enhanced animations
-    gsap.fromTo(".fade-in", 
+    gsap.fromTo(".fade-in",
       { opacity: 0, y: 30 },
       {
         opacity: 1,
@@ -49,7 +49,7 @@ function ProductDetail() {
     );
 
     // Image gallery animation
-    gsap.fromTo(".gallery-image", 
+    gsap.fromTo(".gallery-image",
       { scale: 0.9, opacity: 0 },
       { scale: 1, opacity: 1, duration: 0.6, stagger: 0.1 }
     );
@@ -101,7 +101,7 @@ function ProductDetail() {
 
   if (!productData) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-[#0f172a] to-[#0c4a6e] flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-[#0f172a] dark:to-[#0c4a6e] flex items-center justify-center">
         <div className="text-white text-center">
           <div className="w-16 h-16 border-4 border-cyan-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-lg">Loading product details...</p>
@@ -115,19 +115,19 @@ function ProductDetail() {
   const reviewCount = 124;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0f172a] to-[#0c4a6e]">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-[#0f172a] dark:to-[#0c4a6e]">
       {/* Main Product Section */}
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-20 pt-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
           {/* Image Gallery */}
           <div className="fade-in">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img 
-                src={selectedImage} 
+              <img
+                src={selectedImage}
                 alt={productData.name}
                 className="w-full h-96 lg:h-[500px] object-cover gallery-image"
               />
-              
+
               {/* Navigation Arrows */}
               {images.length > 1 && (
                 <>
@@ -145,7 +145,7 @@ function ProductDetail() {
                   </button>
                 </>
               )}
-              
+
               {/* Image Counter */}
               {images.length > 1 && (
                 <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-full text-white text-sm">
@@ -162,8 +162,8 @@ function ProductDetail() {
                   src={img}
                   alt={`Thumbnail ${i + 1}`}
                   className={`w-16 h-16 object-cover rounded-lg cursor-pointer transition-all duration-300 gallery-image ${
-                    selectedImage === img 
-                      ? 'ring-2 ring-cyan-400 scale-110' 
+                    selectedImage === img
+                      ? 'ring-2 ring-cyan-400 scale-110'
                       : 'opacity-70 hover:opacity-100 hover:scale-105'
                   }`}
                   onClick={() => {
@@ -270,7 +270,7 @@ function ProductDetail() {
                 <FaShoppingCart className="group-hover:scale-110 transition-transform" />
                 Add to Cart - {currency}{(productData.price * quantity).toLocaleString()}
               </button>
-              
+
               <div className="flex gap-3">
                 <button
                   onClick={handleAddToWishlist}
@@ -279,7 +279,7 @@ function ProductDetail() {
                 >
                   <FaHeart className="text-gray-400 group-hover:text-rose-400 group-hover:scale-110 transition-all" />
                 </button>
-                
+
                 <button
                   onClick={handleShare}
                   className="w-14 h-14 bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-xl flex items-center justify-center transition-all duration-300 group"
@@ -379,7 +379,7 @@ function ProductDetail() {
 
               {activeTab === 'reviews' && (
                 <div className="space-y-6">
-                  <div className="bg-gray-800/50 p-6 rounded-xl">
+                  <div className="bg-white/80 dark:bg-gray-800/50 p-6 rounded-xl">
                     <div className="flex items-center gap-4 mb-4">
                       <div className="flex items-center gap-1">
                         {[...Array(5)].map((_, i) => (
@@ -391,10 +391,10 @@ function ProductDetail() {
                     <p className="text-gray-300">
                       "I bought this last month and it's already my favorite item. Great quality, fits perfectly, and looks amazing. Would definitely recommend!"
                     </p>
-                    <p className="text-gray-400 text-sm mt-3">- Sarah Johnson</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm mt-3">- Sarah Johnson</p>
                   </div>
 
-                  <div className="bg-gray-800/50 p-6 rounded-xl">
+                  <div className="bg-white/80 dark:bg-gray-800/50 p-6 rounded-xl">
                     <div className="flex items-center gap-4 mb-4">
                       <div className="flex items-center gap-1">
                         {[...Array(4)].map((_, i) => (
@@ -407,7 +407,7 @@ function ProductDetail() {
                     <p className="text-gray-300">
                       "Really happy with the material and fit. The quality is much better than I expected for the price. Will be buying again!"
                     </p>
-                    <p className="text-gray-400 text-sm mt-3">- Mike Thompson</p>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm mt-3">- Mike Thompson</p>
                   </div>
                 </div>
               )}

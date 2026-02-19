@@ -252,10 +252,10 @@ function OurPolicy() {
   };
 
   return (
-    <section ref={sectionRef} className="w-full min-h-screen bg-gradient-to-br from-[#0a0a0f] via-[#0d1117] to-[#0a0f1a] py-20 px-4 md:px-8 relative overflow-hidden">
+    <section ref={sectionRef} className="w-full min-h-screen bg-gradient-to-br from-gray-50 via-white to-gray-100 dark:from-[#0a0a0f] dark:via-[#0d1117] dark:to-[#0a0f1a] py-20 px-4 md:px-8 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden z-0">
-        <div 
+        <div
           className="absolute w-[600px] h-[600px] bg-cyan-500/5 rounded-full blur-[120px] animate-morph"
           style={{
             top: '-10%',
@@ -264,7 +264,7 @@ function OurPolicy() {
             transition: 'transform 0.3s ease-out'
           }}
         />
-        <div 
+        <div
           className="absolute w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[100px] animate-morph"
           style={{
             bottom: '-10%',
@@ -274,7 +274,7 @@ function OurPolicy() {
             transition: 'transform 0.3s ease-out'
           }}
         />
-        <div 
+        <div
           className="absolute w-[400px] h-[400px] bg-emerald-500/5 rounded-full blur-[80px] animate-morph"
           style={{
             top: '40%',
@@ -332,7 +332,7 @@ function OurPolicy() {
         <div className="text-center mb-16">
           <div className="policy-title">
             <Title text1="OUR" text2="POLICIES" />
-            <p className="text-base md:text-lg text-gray-400 mt-4 max-w-2xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto leading-relaxed">
               Customer-Centric Policies Designed for Your Peace of Mind and Complete Satisfaction
             </p>
           </div>
@@ -373,14 +373,14 @@ function OurPolicy() {
                       {policy.icon}
                     </div>
                     {/* Icon glow */}
-                    <div 
+                    <div
                       className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                       style={{
-                        boxShadow: `0 0 30px ${policy.glowColor === 'cyan' ? 'rgba(6, 182, 212, 0.4)' : 
-                                              policy.glowColor === 'emerald' ? 'rgba(16, 185, 129, 0.4)' : 
-                                              policy.glowColor === 'amber' ? 'rgba(245, 158, 11, 0.4)' : 
-                                              policy.glowColor === 'purple' ? 'rgba(139, 92, 246, 0.4)' : 
-                                              policy.glowColor === 'red' ? 'rgba(239, 68, 68, 0.4)' : 
+                        boxShadow: `0 0 30px ${policy.glowColor === 'cyan' ? 'rgba(6, 182, 212, 0.4)' :
+                                              policy.glowColor === 'emerald' ? 'rgba(16, 185, 129, 0.4)' :
+                                              policy.glowColor === 'amber' ? 'rgba(245, 158, 11, 0.4)' :
+                                              policy.glowColor === 'purple' ? 'rgba(139, 92, 246, 0.4)' :
+                                              policy.glowColor === 'red' ? 'rgba(239, 68, 68, 0.4)' :
                                               'rgba(234, 179, 8, 0.4)'}`
                       }}
                     />
@@ -388,7 +388,7 @@ function OurPolicy() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-cyan-400 transition-all duration-500">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-cyan-400 transition-all duration-500">
                   {policy.title}
                 </h3>
                 <p className="text-gray-400 mb-5 leading-relaxed text-sm md:text-base">{policy.desc}</p>
@@ -396,12 +396,12 @@ function OurPolicy() {
                 {/* Features list */}
                 <ul className="space-y-2.5">
                   {policy.features.map((feature, j) => (
-                    <li 
-                      key={j} 
+                    <li
+                      key={j}
                       className="flex items-center gap-3 text-sm text-gray-300 group-hover:text-gray-200 transition-colors duration-300"
                       style={{ transitionDelay: `${j * 50}ms` }}
                     >
-                      <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${policy.color} group-hover:scale-150 transition-transform duration-300`} 
+                      <div className={`w-1.5 h-1.5 rounded-full bg-gradient-to-r ${policy.color} group-hover:scale-150 transition-transform duration-300`}
                         style={{ transitionDelay: `${j * 100}ms` }}
                       />
                       {feature}
@@ -430,11 +430,11 @@ function OurPolicy() {
                   background: `linear-gradient(90deg, ${stat.color.includes('cyan') ? '#06b6d4' : stat.color.includes('emerald') ? '#10b981' : stat.color.includes('purple') ? '#8b5cf6' : '#f59e0b'}, transparent)`,
                 }}
               />
-              
+
               <div className="text-center p-6 md:p-8 bg-gradient-to-br from-gray-800/80 to-gray-900/90 backdrop-blur-sm rounded-2xl border border-gray-700/50 group-hover:border-transparent transition-all duration-500 hover:-translate-y-2 relative overflow-hidden">
                 {/* Bottom glow line */}
                 <div className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r ${stat.color} transform origin-center scale-x-0 group-hover:scale-x-100 transition-transform duration-500`} />
-                
+
                 <div className={`text-3xl md:text-4xl lg:text-5xl font-bold mb-2 bg-gradient-to-r ${stat.color} bg-clip-text text-transparent`}>
                   {stat.suffix === '%' ? <AnimatedCounter end={stat.value} suffix="%" /> :
                    stat.suffix === '/7' ? <><AnimatedCounter end={stat.value} />/7</> :
@@ -442,7 +442,7 @@ function OurPolicy() {
                    <><AnimatedCounter end={stat.value} />★</>}
                 </div>
                 <div className="text-gray-400 text-xs md:text-sm">{stat.label}</div>
-                
+
                 {/* Hover glow */}
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
                   style={{ boxShadow: 'inset 0 0 30px rgba(6, 182, 212, 0.1)' }}
@@ -464,15 +464,15 @@ function OurPolicy() {
                 filter: 'blur(8px)',
               }}
             />
-            
+
             <div className="relative bg-gradient-to-br from-gray-800/95 to-gray-900/98 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 md:p-12">
-              <h3 className="text-2xl md:text-3xl font-bold text-white mb-4 animate-gradient-text" style={{ display: 'inline-block' }}>
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-4 animate-gradient-text" style={{ display: 'inline-block' }}>
                 Still Have Questions?
               </h3>
               <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
                 Our customer support team is here to help you with any questions about our policies or products.
               </p>
-              <button 
+              <button
                 className="cta-button px-10 py-4 text-white rounded-xl font-semibold hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 transform hover:-translate-y-1 hover:scale-105 cursor-pointer relative overflow-hidden group/btn"
                 onClick={() => navigate('/contact')}
               >
